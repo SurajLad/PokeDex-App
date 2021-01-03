@@ -10,17 +10,28 @@ class ImageButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return FlatButton(
-      minWidth: Get.width / 2.55,
+    return SizedBox(
+      width: Get.width / 2.55,
       height: 50,
-      color: color,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(10),
-      ),
-      onPressed: function,
-      child: Text(
-        title,
-        style: TextStyle(color: Colors.white),
+      child: FlatButton(
+        color: color,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(10),
+        ),
+        onPressed: function,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              title,
+              style: TextStyle(color: Colors.white),
+            ),
+            SizedBox(
+              width: 37,
+              child: Image.asset('Assets/poke_ball.png'),
+            )
+          ],
+        ),
       ),
     );
   }

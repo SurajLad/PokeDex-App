@@ -32,12 +32,12 @@ class _HomePageState extends State<HomePage> {
               child: Stack(
                 children: [
                   Positioned(
-                    left: Get.width - 150,
-                    bottom: (Get.height / 2.2),
+                    left: Get.width - 160,
+                    bottom: (Get.height / 2.25),
                     child: Image.asset(
                       'Assets/poke_ball.png',
-                      width: 200,
-                      height: 200,
+                      width: 230,
+                      height: 230,
                     ),
                   ),
                   Positioned(
@@ -117,13 +117,13 @@ class _HomePageState extends State<HomePage> {
                         Row(
                           children: [
                             ImageButton(
-                              title: "Locations",
+                              title: "Locations ",
                               color: Color(0xFF4F1091),
                               function: () {},
                             ),
                             const SizedBox(width: 15),
                             ImageButton(
-                              title: "Type Chart",
+                              title: "Type",
                               color: Color(0xFF4C2E3C),
                               function: () {},
                             ),
