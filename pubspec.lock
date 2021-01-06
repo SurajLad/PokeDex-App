@@ -49,7 +49,7 @@ packages:
       name: dio
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "3.0.10"
+    version: "3.0.9"
   fake_async:
     dependency: transitive
     description:
@@ -81,6 +81,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "3.1.4"
+  intl:
+    dependency: "direct main"
+    description:
+      name: intl
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.16.1"
   matcher:
     dependency: transitive
     description:

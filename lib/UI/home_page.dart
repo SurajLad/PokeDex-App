@@ -135,15 +135,38 @@ class _HomePageState extends State<HomePage> {
                 ],
               ),
             ),
-            const SizedBox(height: 20),
+            const SizedBox(height: 15),
             Container(
               margin: const EdgeInsets.only(left: 30, right: 30),
-              child: Text(
-                "Poke News",
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 22,
-                ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    "News",
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20,
+                    ),
+                  ),
+                  Container(
+                    height: 200,
+                    child: GetBuilder<HomeController>(builder: (_) {
+                      return _.news == null
+                          ? SizedBox(
+                              width: 40,
+                              height: 40,
+                              child: CircularProgressIndicator())
+                          : ListView.builder(
+                              itemCount: _.news.articles.length,
+                              itemBuilder: (BuildContext context, int index) {
+                                return ListTile(
+                                  title: Text(_.news.articles[index].title),
+                                );
+                              },
+                            );
+                    }),
+                  ),
+                ],
               ),
             ),
           ],
