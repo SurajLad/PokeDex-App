@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:my_pokedex/Controllers/home_controller.dart';
+import 'package:my_pokedex/UI/pokemon_list.dart';
 import 'package:my_pokedex/Widgets/ImageButton.dart';
 
 class HomePage extends StatefulWidget {
@@ -87,7 +88,9 @@ class _HomePageState extends State<HomePage> {
                             ImageButton(
                               title: "Pokedex",
                               color: Color(0xFF36996D).withOpacity(0.8),
-                              function: () {},
+                              function: () {
+                                Get.off(PokeDexList());
+                              },
                             ),
                             const SizedBox(width: 15),
                             ImageButton(
@@ -155,7 +158,8 @@ class _HomePageState extends State<HomePage> {
                           ? SizedBox(
                               width: 40,
                               height: 40,
-                              child: CircularProgressIndicator())
+                              child: CircularProgressIndicator(),
+                            )
                           : ListView.builder(
                               itemCount: _.news.articles.length,
                               itemBuilder: (BuildContext context, int index) {

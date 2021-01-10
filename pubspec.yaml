@@ -29,6 +29,8 @@ dependencies:
   get: ^3.24.0
   dio: 3.0.9
   intl:
+  cached_network_image_builder:
+  flutter_spinkit: ^4.1.2
 
 dev_dependencies:
   flutter_test:
@@ -48,6 +50,7 @@ flutter:
   assets:
     - Assets/
     - Assets/fonts/
+    - pokemon.json
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
