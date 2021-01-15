@@ -31,6 +31,7 @@ dependencies:
   intl:
   cached_network_image_builder:
   flutter_spinkit: ^4.1.2
+  flutter_svg: ^0.19.2+1
 
 dev_dependencies:
   flutter_test:
@@ -50,6 +51,7 @@ flutter:
   assets:
     - Assets/
     - Assets/fonts/
+    - Assets/pokemon_type_icons/
     - pokemon.json
 
   # An image asset can refer to one or more resolution-specific "variants", see

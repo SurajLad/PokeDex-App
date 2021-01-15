@@ -1,6 +1,8 @@
 import 'package:cached_network_image_builder/cached_network_image_builder.dart';
 import 'package:flutter/material.dart';
-import 'package:my_pokedex/Helpers/constants.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
+import 'package:my_pokedex/utitliy/constants.dart';
 import 'package:my_pokedex/Model/pokemon.dart';
 
 class PokemonTile extends StatelessWidget {
@@ -16,8 +18,8 @@ class PokemonTile extends StatelessWidget {
       height: 80,
       decoration: BoxDecoration(
         color: pokemonTypeMap[pokemon.types[0].name].withOpacity(0.6),
-        border: Border.all(color: Colors.black38),
-        // borderRadius: BorderRadius.circular(10),
+        //   border: Border.all(color: Colors.black38),
+        borderRadius: BorderRadius.circular(10),
       ),
       child: Stack(
         children: [
@@ -39,7 +41,36 @@ class PokemonTile extends StatelessWidget {
           ),
           Align(
             alignment: Alignment.center,
-            child: Text(pokemon.name),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(pokemon.name),
+                SizedBox(
+                  height: 10,
+                ),
+                SizedBox(
+                  height: 25,
+                  child: ListView.builder(
+                    shrinkWrap: true,
+                    itemCount: pokemon.types.length,
+                    physics: NeverScrollableScrollPhysics(),
+                    scrollDirection: Axis.horizontal,
+                    itemBuilder: (context, index) {
+                      return Padding(
+                        padding: const EdgeInsets.all(2.0),
+                        child: SvgPicture.asset(
+                          "Assets/pokemon_type_icons/" +
+                              pokemon.types[index].name +
+                              ".svg",
+                          width: 25,
+                        ),
+                      );
+                    },
+                  ),
+                ),
+              ],
+            ),
           ),
           Align(
             alignment: Alignment.bottomRight,

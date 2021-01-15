@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:my_pokedex/Controllers/home_controller.dart';
-import 'package:my_pokedex/Helpers/constants.dart';
+import 'package:my_pokedex/utitliy/constants.dart';
 import 'package:my_pokedex/Widgets/PokemonTile.dart';
 
 class PokeDexList extends StatefulWidget {

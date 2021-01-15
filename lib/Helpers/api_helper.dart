@@ -1,7 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:intl/intl.dart';
 import 'package:my_pokedex/Model/news.dart';
-import 'package:my_pokedex/Model/pokemon_list.dart';
 
 class APIHelper {
   static Dio dio;
