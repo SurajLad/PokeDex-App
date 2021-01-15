@@ -1,5 +1,6 @@
 import 'package:cached_network_image_builder/cached_network_image_builder.dart';
 import 'package:flutter/material.dart';
+import 'package:my_pokedex/Helpers/constants.dart';
 import 'package:my_pokedex/Model/pokemon.dart';
 
 class PokemonTile extends StatelessWidget {
@@ -14,8 +15,9 @@ class PokemonTile extends StatelessWidget {
       margin: const EdgeInsets.only(bottom: 8.0),
       height: 80,
       decoration: BoxDecoration(
+        color: pokemonTypeMap[pokemon.types[0].name].withOpacity(0.6),
         border: Border.all(color: Colors.black38),
-        borderRadius: BorderRadius.circular(10),
+        // borderRadius: BorderRadius.circular(10),
       ),
       child: Stack(
         children: [
@@ -33,8 +35,6 @@ class PokemonTile extends StatelessWidget {
                 errorWidget: Image.asset('assets/images/error_image.png'),
                 imageExtensions: ['jpg', 'png'],
               ),
-              // child: Image.network(
-              //     "https://pokeres.bastionbot.org/images/pokemon/$index.png"),
             ),
           ),
           Align(

@@ -8,7 +8,7 @@ import 'package:my_pokedex/Model/pokemon.dart';
 
 class HomeController extends GetxController {
   News news;
-  List<Pokemon> pokemonList;
+  List<Pokemon> pokemonList = [];
 
   Future<List<dynamic>> parseJsonFromAssets(String assetsPath) async {
     print('--- Parse json from: $assetsPath');
