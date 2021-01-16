@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:my_pokedex/Controllers/home_controller.dart';
-import 'package:my_pokedex/utitliy/constants.dart';
+import 'package:my_pokedex/Helpers/responsive_helper.dart';
+import 'package:my_pokedex/Helpers/text_styles.dart';
 import 'package:my_pokedex/Widgets/PokemonTile.dart';
 
 class PokeDexList extends StatefulWidget {
@@ -10,104 +11,112 @@ class PokeDexList extends StatefulWidget {
 }
 
 class _PokeDexListState extends State<PokeDexList> {
-  static const _pageSize = 20;
   HomeController homeController = Get.find<HomeController>();
-
-  // final PagingController<String, Results> _pagingController =
-  //     PagingController(firstPageKey: "https://pokeapi.co/api/v2/pokemon/");
-
-  //
   //   https://medium.com/@sergio13prez/fetching-them-all-poke-api-62ca580981a2
 
   @override
   void initState() {
-    // pokemonFromJson(homeController.);
-    // _pagingController.addPageRequestListener((pageKey) {
-    //   _fetchPage(pageKey);
-    // });
     super.initState();
   }
 
-  // Future<void> _fetchPage(String pageUrl) async {
-  //   try {
-  //     final pokemon = await APIHelper().getPokemon(pageUrl);
-
-  //     if (pokemon.next == null) {
-  //       _pagingController.appendLastPage(pokemon.results);
-  //     } else {
-  //       final nextPageKey = pokemon.next;
-  //       _pagingController.appendPage(pokemon.results, nextPageKey);
-  //     }
-  //   } catch (error) {
-  //     _pagingController.error = error;
-  //   }
-  // }
-
   @override
   void dispose() {
-    //   _pagingController.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: appThemeColor,
-      body: Column(
-        children: [
-          Container(
-            width: Get.width,
-            height: Get.height,
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.only(
-                bottomLeft: Radius.circular(30),
-                bottomRight: Radius.circular(30),
-              ),
-            ),
-            child: Stack(
-              children: [
-                Positioned(
-                  left: Get.width - 160,
-                  bottom: (Get.height / 2.25),
-                  child: Image.asset(
-                    'Assets/poke_ball.png',
-                    width: 230,
-                    height: 230,
-                  ),
+      backgroundColor: Colors.white,
+      body: SingleChildScrollView(
+        child: Container(
+          width: Get.width,
+          height: Get.height,
+          child: Stack(
+            children: [
+              Positioned(
+                left: Get.width - 160,
+                bottom: (Get.height / 1.45),
+                child: Image.asset(
+                  'Assets/poke_ball.png',
+                  width: 230,
+                  height: 230,
                 ),
-                Positioned(
-                  left: 30,
-                  top: 70,
-                  right: 25,
+              ),
+              Positioned(
+                left: 30,
+                top: 50,
+                right: 25,
+                child: Container(
+                  width: Get.width,
+                  height: Get.height,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       Text(
                         "Pokedex",
-                        style: TextStyle(
-                            fontSize: 22, fontWeight: FontWeight.bold),
+                        style: AppTextStyle.largeBold
+                            .copyWith(color: Color(0xFFe94a41)),
                       ),
-                      const SizedBox(height: 30),
-                      SizedBox(
-                          height: 700,
+                      const SizedBox(height: 20),
+                      Container(
+                        width: Get.width,
+                        height: 40,
+                        decoration: BoxDecoration(
+                          color: const Color(0xFFEAEBF5),
+                          border: Border.all(color: Colors.black12),
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                        child: TextFormField(
+                          controller: homeController.filterTxtController,
+                          onChanged: (value) {
+                            homeController.onDataSearched();
+                          },
+                          decoration: InputDecoration(
+                            contentPadding: const EdgeInsets.all(4),
+                            prefixIcon: Icon(
+                              Icons.search,
+                              color: Colors.black54,
+                            ),
+                            hintText: "Search Pokemon.",
+                            hintStyle: AppTextStyle.smallBold.copyWith(
+                              color: Color(0xFF827A7D),
+                            ),
+                            border: InputBorder.none,
+                          ),
+                        ),
+                      ),
+                      const SizedBox(height: 10),
+                      Text(
+                        "This Pokedex contains detailed stats for every pokemon.",
+                        style: AppTextStyle.regularBold.copyWith(
+                          color: Color(0xFF827A7D),
+                          fontSize: ResponsiveHelper.instance.fontSize - 4,
+                        ),
+                      ),
+                      GetBuilder<HomeController>(
+                        builder: (controller) => Expanded(
                           child: ListView.builder(
-                            itemCount: homeController.pokemonList.length,
+                            primary: false,
+                            itemCount: homeController.searchList.length,
                             itemBuilder: (_, index) {
                               return PokemonTile(
-                                index: index + 1,
-                                pokemon: homeController.pokemonList[index],
+                                //    index: index + 1,
+                                index: homeController.searchList[index].dex,
+                                pokemon: homeController.searchList[index],
                               );
                             },
-                          )),
+                          ),
+                        ),
+                      ),
                     ],
                   ),
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
-        ],
+        ),
       ),
     );
   }

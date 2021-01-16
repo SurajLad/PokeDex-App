@@ -2,6 +2,8 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:my_pokedex/Helpers/responsive_helper.dart';
+import 'package:my_pokedex/Helpers/text_styles.dart';
 import 'package:my_pokedex/UI/home_page.dart';
 
 class SplashPage extends StatefulWidget {
@@ -20,9 +22,18 @@ class _SplashPageState extends State<SplashPage> {
 
   @override
   Widget build(BuildContext context) {
+    ResponsiveHelper();
+    ResponsiveHelper.instance.width = Get.width;
+    ResponsiveHelper.instance.height = Get.height;
+    ResponsiveHelper.instance.fontSize = Get.width > 300 ? 18 : 16;
+    ResponsiveHelper.instance.titleFontSize = Get.width > 300 ? 22 : 20;
+
     return Scaffold(
       body: Center(
-        child: Text("PokeDex App"),
+        child: Text(
+          "PokeDex App",
+          style: AppTextStyle.largeBold,
+        ),
       ),
     );
   }

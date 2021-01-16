@@ -89,7 +89,7 @@ class _HomePageState extends State<HomePage> {
                               title: "Pokedex",
                               color: Color(0xFF36996D).withOpacity(0.8),
                               function: () {
-                                Get.off(PokeDexList());
+                                Get.to(PokeDexList());
                               },
                             ),
                             const SizedBox(width: 15),

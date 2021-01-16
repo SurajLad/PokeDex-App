@@ -1,7 +1,7 @@
 import 'package:cached_network_image_builder/cached_network_image_builder.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:get/get.dart';
+import 'package:my_pokedex/Helpers/text_styles.dart';
 import 'package:my_pokedex/utitliy/constants.dart';
 import 'package:my_pokedex/Model/pokemon.dart';
 
@@ -33,22 +33,28 @@ class PokemonTile extends StatelessWidget {
                 builder: (image) {
                   return Center(child: Image.file(image));
                 },
-                placeHolder: CircularProgressIndicator(),
-                errorWidget: Image.asset('assets/images/error_image.png'),
+                placeHolder: SizedBox(
+                  height: 20,
+                  width: 20,
+                  child: Image.asset('Assets/loading.gif'),
+                ),
+                errorWidget: Image.asset('Assets/poke_ball.png'),
                 imageExtensions: ['jpg', 'png'],
               ),
             ),
           ),
-          Align(
-            alignment: Alignment.center,
+          Padding(
+            padding: const EdgeInsets.only(left: 110.0),
             child: Column(
-              mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisSize: MainAxisSize.max,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(pokemon.name),
-                SizedBox(
-                  height: 10,
+                Text(
+                  pokemon.name,
+                  style: AppTextStyle.regularBold.copyWith(color: Colors.white),
                 ),
+                const SizedBox(height: 5),
                 SizedBox(
                   height: 25,
                   child: ListView.builder(
@@ -57,13 +63,20 @@ class PokemonTile extends StatelessWidget {
                     physics: NeverScrollableScrollPhysics(),
                     scrollDirection: Axis.horizontal,
                     itemBuilder: (context, index) {
-                      return Padding(
-                        padding: const EdgeInsets.all(2.0),
+                      return Container(
+                        padding: const EdgeInsets.all(4.0),
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: Colors.white,
+                        ),
                         child: SvgPicture.asset(
                           "Assets/pokemon_type_icons/" +
                               pokemon.types[index].name +
                               ".svg",
-                          width: 25,
+                          color: pokemonTypeMap[pokemon.types[index].name],
+                          placeholderBuilder: (context) =>
+                              Image.asset('Assets/poke_ball.png'),
+                          width: 20,
                         ),
                       );
                     },
@@ -76,7 +89,10 @@ class PokemonTile extends StatelessWidget {
             alignment: Alignment.bottomRight,
             child: Padding(
               padding: const EdgeInsets.only(right: 8.0, bottom: 2),
-              child: Text("#" + index.toString()),
+              child: Text(
+                "#" + index.toString(),
+                style: AppTextStyle.largeBold.copyWith(color: Colors.white),
+              ),
             ),
           ),
         ],

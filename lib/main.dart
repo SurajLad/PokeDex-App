@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       title: 'PokeDex',
       theme: ThemeData(
-        fontFamily: 'Montserrat-Regular',
+        // fontFamily: 'Montserrat-Regular',
         primarySwatch: Colors.blue,
       ),
       home: SplashPage(),
