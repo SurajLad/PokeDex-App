@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 const Color appThemeColor = Color(0xFFEAEBF5);
 
 const Map<String, Color> pokemonTypeMap = {
-  "Grass": Color(0xFF88ce4f),
+  "Grass": Color(0xFF46cfae),
   "Poison": Color(0xFF98558e),
   "Fire": Color(0xFFf95342),
   "Flying": Color(0xFF78a0ff),
