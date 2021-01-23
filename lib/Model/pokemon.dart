@@ -60,15 +60,12 @@ class Pokemon {
   factory Pokemon.fromJson(Map<String, dynamic> json) => Pokemon(
         dex: json["dex"],
         name: json["name"],
-        animationTime:
-            List<double>.from(json["animationTime"].map((x) => x.toDouble())),
         height: json["height"].toDouble(),
         modelHeight: json["modelHeight"].toDouble(),
         kmBuddyDistance: json["kmBuddyDistance"],
         weight: json["weight"].toDouble(),
         modelScale: json["modelScale"].toDouble(),
         maxCp: json["maxCP"],
-        buddySize: BuddySize.fromJson(json["buddySize"]),
         cinematicMoves: List<Move>.from(
             json["cinematicMoves"].map((x) => Move.fromJson(x))),
         quickMoves:
@@ -81,8 +78,6 @@ class Pokemon {
         camera: Camera.fromJson(json["camera"]),
         evolution: Evolution.fromJson(json["evolution"]),
         id: json["id"],
-        forms: List<BuddySize>.from(
-            json["forms"].map((x) => BuddySize.fromJson(x))),
         rarity:
             json["rarity"] == null ? null : BuddySize.fromJson(json["rarity"]),
       );
@@ -289,12 +284,10 @@ class Evolution {
   Evolution({
     this.futureBranches,
     this.pastBranch,
-    this.costToEvolve,
   });
 
   List<FutureBranch> futureBranches;
   Branch pastBranch;
-  EvolutionCostToEvolve costToEvolve;
 
   factory Evolution.fromJson(Map<String, dynamic> json) => Evolution(
         futureBranches: json["futureBranches"] == null
@@ -304,9 +297,6 @@ class Evolution {
         pastBranch: json["pastBranch"] == null
             ? null
             : Branch.fromJson(json["pastBranch"]),
-        costToEvolve: json["costToEvolve"] == null
-            ? null
-            : EvolutionCostToEvolve.fromJson(json["costToEvolve"]),
       );
 
   Map<String, dynamic> toJson() => {
@@ -314,35 +304,6 @@ class Evolution {
             ? null
             : List<dynamic>.from(futureBranches.map((x) => x.toJson())),
         "pastBranch": pastBranch == null ? null : pastBranch.toJson(),
-        "costToEvolve": costToEvolve == null ? null : costToEvolve.toJson(),
-      };
-}
-
-class EvolutionCostToEvolve {
-  EvolutionCostToEvolve({
-    this.candyCost,
-    this.evolutionItem,
-    this.kmBuddyDistance,
-  });
-
-  int candyCost;
-  BuddySize evolutionItem;
-  int kmBuddyDistance;
-
-  factory EvolutionCostToEvolve.fromJson(Map<String, dynamic> json) =>
-      EvolutionCostToEvolve(
-        candyCost: json["candyCost"] == null ? null : json["candyCost"],
-        evolutionItem: json["evolutionItem"] == null
-            ? null
-            : BuddySize.fromJson(json["evolutionItem"]),
-        kmBuddyDistance:
-            json["kmBuddyDistance"] == null ? null : json["kmBuddyDistance"],
-      );
-
-  Map<String, dynamic> toJson() => {
-        "candyCost": candyCost == null ? null : candyCost,
-        "evolutionItem": evolutionItem == null ? null : evolutionItem.toJson(),
-        "kmBuddyDistance": kmBuddyDistance == null ? null : kmBuddyDistance,
       };
 }
 
@@ -351,13 +312,11 @@ class FutureBranch {
     this.name,
     this.id,
     this.futureBranches,
-    this.costToEvolve,
   });
 
   String name;
   String id;
   List<Branch> futureBranches;
-  EvolutionCostToEvolve costToEvolve;
 
   factory FutureBranch.fromJson(Map<String, dynamic> json) => FutureBranch(
         name: json["name"],
@@ -366,7 +325,6 @@ class FutureBranch {
             ? null
             : List<Branch>.from(
                 json["futureBranches"].map((x) => Branch.fromJson(x))),
-        costToEvolve: EvolutionCostToEvolve.fromJson(json["costToEvolve"]),
       );
 
   Map<String, dynamic> toJson() => {
@@ -375,7 +333,6 @@ class FutureBranch {
         "futureBranches": futureBranches == null
             ? null
             : List<dynamic>.from(futureBranches.map((x) => x.toJson())),
-        "costToEvolve": costToEvolve.toJson(),
       };
 }
 
