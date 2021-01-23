@@ -4,6 +4,7 @@ import 'package:my_pokedex/Helpers/responsive_helper.dart';
 import 'package:my_pokedex/Helpers/text_styles.dart';
 import 'package:my_pokedex/Model/pokemon.dart';
 import 'package:my_pokedex/UI/Tabs/about.dart';
+import 'package:my_pokedex/UI/Tabs/stats.dart';
 import 'package:my_pokedex/utitliy/constants.dart';
 
 class PokemonDetail extends StatefulWidget {
@@ -64,7 +65,7 @@ class _PokemonDetailState extends State<PokemonDetail>
                         ),
                         Text(
                           "#" + widget.pokemon.dex.toString(),
-                          style: AppTextStyle.regularBold.copyWith(
+                          style: AppTextStyle.mediumBold.copyWith(
                             color: Colors.white,
                           ),
                         ),
@@ -83,7 +84,9 @@ class _PokemonDetailState extends State<PokemonDetail>
                             margin: const EdgeInsets.only(right: 5),
                             padding: const EdgeInsets.all(6.0),
                             decoration: BoxDecoration(
-                              color: Colors.white24,
+                              border: Border.all(color: Colors.white),
+                              color: pokemonTypeMap[
+                                  widget.pokemon.types[index].name],
                               borderRadius: BorderRadius.circular(8),
                             ),
                             child: Text(
@@ -144,10 +147,8 @@ class _PokemonDetailState extends State<PokemonDetail>
                       Expanded(
                         child: TabBarView(
                           children: [
-                            AboutTab(
-                              pokemon: widget.pokemon,
-                            ),
-                            Text('Person'),
+                            AboutTab(pokemon: widget.pokemon),
+                            StatsTab(pokemon: widget.pokemon),
                             Text('Person'),
                             Text('Person'),
                           ],
