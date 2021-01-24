@@ -1,9 +1,13 @@
 import 'package:cached_network_image_builder/cached_network_image_builder.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:my_pokedex/Controllers/pokemon_controller.dart';
 import 'package:my_pokedex/Helpers/responsive_helper.dart';
 import 'package:my_pokedex/Helpers/text_styles.dart';
 import 'package:my_pokedex/Model/pokemon.dart';
 import 'package:my_pokedex/UI/Tabs/about.dart';
+import 'package:my_pokedex/UI/Tabs/evolution.dart';
 import 'package:my_pokedex/UI/Tabs/stats.dart';
 import 'package:my_pokedex/utitliy/constants.dart';
 
@@ -18,10 +22,12 @@ class PokemonDetail extends StatefulWidget {
 class _PokemonDetailState extends State<PokemonDetail>
     with SingleTickerProviderStateMixin {
   TabController _tabController;
+  PokemonController pokemonController = Get.put(PokemonController());
 
   @override
   void initState() {
     _tabController = new TabController(length: 4, vsync: this);
+    pokemonController.getPokemonDetails(widget.pokemon.dex.toString());
     super.initState();
   }
 
@@ -146,10 +152,11 @@ class _PokemonDetailState extends State<PokemonDetail>
                       ),
                       Expanded(
                         child: TabBarView(
+                          physics: NeverScrollableScrollPhysics(),
                           children: [
                             AboutTab(pokemon: widget.pokemon),
-                            StatsTab(pokemon: widget.pokemon),
-                            Text('Person'),
+                            StatsTab(),
+                            EvolutionTab(pokemon: widget.pokemon),
                             Text('Person'),
                           ],
                           controller: _tabController,

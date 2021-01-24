@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:intl/intl.dart';
 import 'package:my_pokedex/Model/news.dart';
+import 'package:my_pokedex/Model/pokemonAPI.dart';
 
 class APIHelper {
   static Dio dio;
@@ -42,20 +43,22 @@ class APIHelper {
     return news;
   }
 
-  // Future<Pokemon> getPokemon(String url) async {
-  //   Pokemon pokemon;
+  Future<PokemonAPI> getPokemon(String index) async {
+    PokemonAPI pokemonAPI;
 
-  //   await dio.get(url).then((receivedResponse) {
-  //     Response response = receivedResponse;
-  //     if (response.statusCode == 200) {
-  //       pokemon = Pokemon.fromJson(response.data);
-  //     } else {
-  //       return null;
-  //     }
-  //   }).catchError((onError) {
-  //     print("Error : " + onError.toString());
-  //     return null;
-  //   });
-  //   return pokemon;
-  // }
+    await dio
+        .get("https://pokeapi.co/api/v2/pokemon/" + index)
+        .then((receivedResponse) {
+      Response response = receivedResponse;
+      if (response.statusCode == 200) {
+        pokemonAPI = PokemonAPI.fromJson(response.data);
+      } else {
+        return null;
+      }
+    }).catchError((onError) {
+      print("Error : " + onError.toString());
+      return null;
+    });
+    return pokemonAPI;
+  }
 }
