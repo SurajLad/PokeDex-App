@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:my_pokedex/Controllers/home_controller.dart';
-import 'package:my_pokedex/UI/pokemon_list.dart';
+import 'package:my_pokedex/UI/Moves/move_list.dart';
+import 'package:my_pokedex/UI/PokeDex_UI/pokemon_list.dart';
 import 'package:my_pokedex/Widgets/ImageButton.dart';
 
 class HomePage extends StatefulWidget {
@@ -96,7 +97,9 @@ class _HomePageState extends State<HomePage> {
                             ImageButton(
                               title: "Moves",
                               color: Color(0xFFC73B37).withOpacity(0.8),
-                              function: () {},
+                              function: () {
+                                Get.to(MovesList());
+                              },
                             ),
                           ],
                         ),

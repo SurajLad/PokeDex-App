@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:my_pokedex/Helpers/text_styles.dart';
-import 'package:my_pokedex/UI/pokemon_detail.dart';
+import 'package:my_pokedex/UI/PokeDex_UI/pokemon_detail.dart';
 import 'package:my_pokedex/utitliy/constants.dart';
 import 'package:my_pokedex/Model/pokemon.dart';
 

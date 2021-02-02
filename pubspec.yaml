@@ -33,6 +33,7 @@ dependencies:
   flutter_spinkit: ^4.1.2
   flutter_svg: ^0.19.2+1
   line_icons: ^0.2.0
+  infinite_scroll_pagination: ^2.3.0
 
 dev_dependencies:
   flutter_test:

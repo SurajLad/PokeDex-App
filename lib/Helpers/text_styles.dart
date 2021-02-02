@@ -22,6 +22,11 @@ class AppTextStyle {
     color: Colors.black,
   );
 
+  static TextStyle extraLarge = TextStyle(
+    fontSize: ResponsiveHelper.instance.fontSize + 8,
+    color: Colors.black,
+  );
+
   // =============================================
 
   static TextStyle smallBold = TextStyle(
@@ -43,6 +48,12 @@ class AppTextStyle {
 
   static TextStyle largeBold = TextStyle(
     fontSize: ResponsiveHelper.instance.fontSize + 4,
+    color: Colors.black,
+    fontWeight: FontWeight.bold,
+  );
+
+  static TextStyle extraLargeBold = TextStyle(
+    fontSize: ResponsiveHelper.instance.fontSize + 8,
     color: Colors.black,
     fontWeight: FontWeight.bold,
   );

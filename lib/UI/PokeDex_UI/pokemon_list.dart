@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:line_icons/line_icons.dart';
 import 'package:my_pokedex/Controllers/home_controller.dart';
 import 'package:my_pokedex/Helpers/responsive_helper.dart';
 import 'package:my_pokedex/Helpers/text_styles.dart';
@@ -12,7 +13,6 @@ class PokeDexList extends StatefulWidget {
 
 class _PokeDexListState extends State<PokeDexList> {
   HomeController homeController = Get.find<HomeController>();
-  //   https://medium.com/@sergio13prez/fetching-them-all-poke-api-62ca580981a2
 
   @override
   void initState() {
@@ -44,8 +44,22 @@ class _PokeDexListState extends State<PokeDexList> {
                 ),
               ),
               Positioned(
+                left: 10,
+                top: 35,
+                child: IconButton(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  icon: Icon(
+                    LineIcons.arrow_left,
+                    color: Color(0xFFe94a41),
+                  ),
+                  iconSize: 30,
+                ),
+              ),
+              Positioned(
                 left: 30,
-                top: 50,
+                top: 45,
                 right: 25,
                 child: Container(
                   width: Get.width,
@@ -54,10 +68,14 @@ class _PokeDexListState extends State<PokeDexList> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      Text(
-                        "Pokedex",
-                        style: AppTextStyle.largeBold
-                            .copyWith(color: Color(0xFFe94a41)),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 35.0),
+                        child: Text(
+                          "PokeDex",
+                          style: AppTextStyle.extraLargeBold.copyWith(
+                            color: Color(0xFFe94a41),
+                          ),
+                        ),
                       ),
                       const SizedBox(height: 20),
                       Container(

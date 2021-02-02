@@ -6,10 +6,10 @@ import 'package:my_pokedex/Controllers/pokemon_controller.dart';
 import 'package:my_pokedex/Helpers/responsive_helper.dart';
 import 'package:my_pokedex/Helpers/text_styles.dart';
 import 'package:my_pokedex/Model/pokemon.dart';
-import 'package:my_pokedex/UI/Tabs/about.dart';
-import 'package:my_pokedex/UI/Tabs/evolution.dart';
-import 'package:my_pokedex/UI/Tabs/moves.dart';
-import 'package:my_pokedex/UI/Tabs/stats.dart';
+import 'package:my_pokedex/UI/PokeDex_UI/Tabs/about.dart';
+import 'package:my_pokedex/UI/PokeDex_UI/Tabs/evolution.dart';
+import 'package:my_pokedex/UI/PokeDex_UI/Tabs/moves.dart';
+import 'package:my_pokedex/UI/PokeDex_UI/Tabs/stats.dart';
 import 'package:my_pokedex/utitliy/constants.dart';
 
 class PokemonDetail extends StatefulWidget {
@@ -96,7 +96,7 @@ class _PokemonDetailState extends State<PokemonDetail>
                     ),
                     Text(
                       "#" + widget.pokemon.dex.toString(),
-                      style: AppTextStyle.largeBold.copyWith(
+                      style: AppTextStyle.extraLargeBold.copyWith(
                         color: Colors.white,
                       ),
                     ),
