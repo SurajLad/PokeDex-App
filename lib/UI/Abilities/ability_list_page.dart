@@ -7,14 +7,14 @@ import 'package:my_pokedex/Helpers/text_styles.dart';
 import 'package:my_pokedex/Model/MovesList.dart';
 import 'package:my_pokedex/UI/Moves/TM_Tile.dart';
 
-class MovesList extends StatefulWidget {
+class AbilityListPage extends StatefulWidget {
   @override
-  _MovesListState createState() => _MovesListState();
+  _AbilityListPageState createState() => _AbilityListPageState();
 }
 
-class _MovesListState extends State<MovesList> {
+class _AbilityListPageState extends State<AbilityListPage> {
   final PagingController<String, Results> _pagingController =
-      PagingController(firstPageKey: "https://pokeapi.co/api/v2/move");
+      PagingController(firstPageKey: "https://pokeapi.co/api/v2/ability/");
 
   @override
   void initState() {
@@ -92,7 +92,7 @@ class _MovesListState extends State<MovesList> {
                       Padding(
                         padding: const EdgeInsets.only(left: 35.0),
                         child: Text(
-                          "Moves",
+                          "Abilities",
                           style: AppTextStyle.extraLargeBold.copyWith(
                             color: Color(0xFFe94a41),
                           ),
@@ -100,7 +100,7 @@ class _MovesListState extends State<MovesList> {
                       ),
                       const SizedBox(height: 20),
                       Text(
-                        "Moves are the skills of Pokémon in battle. In battle, a Pokémon uses one move each turn. Some moves (including those learned by Hidden Machine) can be used outside of battle as well, usually for the purpose of removing obstacles or exploring new areas.",
+                        "Abilities provide passive effects for Pokémon in battle or in the overworld. Pokémon have multiple possible abilities but can have only one ability at a time.",
                         style: AppTextStyle.regularBold.copyWith(
                           color: Color(0xFF827A7D),
                           fontSize: ResponsiveHelper.instance.fontSize - 4,
@@ -113,7 +113,7 @@ class _MovesListState extends State<MovesList> {
                         builderDelegate: PagedChildBuilderDelegate<Results>(
                           itemBuilder: (context, item, index) => TMTile(
                             moves: item,
-                            type: 0,
+                            type: 1,
                           ),
                         ),
                       )),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:my_pokedex/Controllers/home_controller.dart';
+import 'package:my_pokedex/UI/Abilities/ability_list_page.dart';
 import 'package:my_pokedex/UI/Moves/move_list.dart';
 import 'package:my_pokedex/UI/PokeDex_UI/pokemon_list.dart';
 import 'package:my_pokedex/Widgets/ImageButton.dart';
@@ -109,7 +110,9 @@ class _HomePageState extends State<HomePage> {
                             ImageButton(
                               title: "Abilities",
                               color: Color(0xFF2E6DD5).withOpacity(0.8),
-                              function: () {},
+                              function: () {
+                                Get.to(AbilityListPage());
+                              },
                             ),
                             const SizedBox(width: 15),
                             ImageButton(

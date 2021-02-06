@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:my_pokedex/Controllers/pokemon_controller.dart';
 import 'package:my_pokedex/Helpers/text_styles.dart';
+import 'package:my_pokedex/Helpers/utility_helpers.dart';
 import 'package:my_pokedex/Model/pokemon.dart';
 
 class AboutTab extends StatelessWidget {
@@ -85,29 +86,29 @@ class AboutTab extends StatelessWidget {
     );
   }
 
-  Row buildAboutInformation(String title, String information) {
-    return Row(
-      mainAxisSize: MainAxisSize.max,
-      children: [
-        Flexible(
-          flex: 4,
-          child: Text(
-            title + "\t\t:",
-            style: AppTextStyle.smallBold.copyWith(color: Color(0xFFB4B5BE)),
-          ),
-        ),
-        Flexible(
-          fit: FlexFit.tight,
-          flex: 6,
-          child: Align(
-            alignment: Alignment.center,
-            child: Text(
-              information,
-              style: AppTextStyle.smallBold,
-            ),
-          ),
-        ),
-      ],
-    );
-  }
+  // // Row buildAboutInformation(String title, String information) {
+  // //   return Row(
+  // //     mainAxisSize: MainAxisSize.max,
+  // //     children: [
+  // //       Flexible(
+  // //         flex: 4,
+  // //         child: Text(
+  // //           title + "\t\t:",
+  // //           style: AppTextStyle.smallBold.copyWith(color: Color(0xFFB4B5BE)),
+  // //         ),
+  // //       ),
+  // //       Flexible(
+  // //         fit: FlexFit.tight,
+  // //         flex: 6,
+  // //         child: Align(
+  // //           alignment: Alignment.center,
+  // //           child: Text(
+  // //             information,
+  // //             style: AppTextStyle.smallBold,
+  // //           ),
+  // //         ),
+  // //       ),
+  // //     ],
+  // //   );
+  // }
 }

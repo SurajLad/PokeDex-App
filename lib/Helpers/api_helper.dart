@@ -2,7 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:intl/intl.dart';
 import 'package:my_pokedex/Model/Move_details.dart';
 import 'package:my_pokedex/Model/MovesList.dart';
-import 'package:my_pokedex/Model/moves.dart';
+import 'package:my_pokedex/Model/ability_detail.dart';
 import 'package:my_pokedex/Model/news.dart';
 import 'package:my_pokedex/Model/pokemonAPI.dart';
 
@@ -93,5 +93,22 @@ class APIHelper {
       return null;
     });
     return moveDetail;
+  }
+
+  Future<AbilityDetail> getAbilityDetail(String url) async {
+    AbilityDetail abilityDetail;
+
+    await dio.get(url).then((receivedResponse) {
+      Response response = receivedResponse;
+      if (response.statusCode == 200) {
+        abilityDetail = AbilityDetail.fromJson(response.data);
+      } else {
+        return null;
+      }
+    }).catchError((onError) {
+      print("Error : " + onError.toString());
+      return null;
+    });
+    return abilityDetail;
   }
 }

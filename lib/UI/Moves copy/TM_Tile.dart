@@ -1,14 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:my_pokedex/Model/MovesList.dart';
-import 'package:my_pokedex/Model/ability_detail.dart';
-import 'package:my_pokedex/UI/Abilities/ability_detail.dart';
 import 'package:my_pokedex/UI/Moves/move_detail.dart';
 import 'package:my_pokedex/Helpers/utility_helpers.dart';
 
 class TMTile extends StatefulWidget {
   final Results moves;
-  final int type;
-  TMTile({this.moves, this.type});
+  TMTile({this.moves});
   @override
   _TMTileState createState() => _TMTileState();
 }
@@ -29,18 +26,7 @@ class _TMTileState extends State<TMTile> {
             borderRadius: BorderRadius.circular(16),
           ),
           builder: (context) {
-            switch (widget.type) {
-              case 0:
-                return MoveDetailSheet(url: widget.moves.url);
-                break;
-
-              case 1:
-                return AbilityDetailSheet(url: widget.moves.url);
-                break;
-
-              default:
-                return Container();
-            }
+            return MoveDetailSheet(url: widget.moves.url);
           },
         );
       },
@@ -62,7 +48,7 @@ class _TMTileState extends State<TMTile> {
             leading: Image.asset(
               "Assets/poke_move.png",
               height: 30,
-              color: Colors.black45,
+              color: Colors.grey[400],
             ),
             title: Text(
               widget.moves == null
