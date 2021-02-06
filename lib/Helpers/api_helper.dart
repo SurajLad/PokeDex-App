@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:intl/intl.dart';
+import 'package:my_pokedex/Model/Move_details.dart';
 import 'package:my_pokedex/Model/MovesList.dart';
 import 'package:my_pokedex/Model/moves.dart';
 import 'package:my_pokedex/Model/news.dart';
@@ -75,5 +76,22 @@ class APIHelper {
       return null;
     });
     return pokemonAPI;
+  }
+
+  Future<MoveDetail> getMoveDetail(String url) async {
+    MoveDetail moveDetail;
+
+    await dio.get(url).then((receivedResponse) {
+      Response response = receivedResponse;
+      if (response.statusCode == 200) {
+        moveDetail = MoveDetail.fromJson(response.data);
+      } else {
+        return null;
+      }
+    }).catchError((onError) {
+      print("Error : " + onError.toString());
+      return null;
+    });
+    return moveDetail;
   }
 }

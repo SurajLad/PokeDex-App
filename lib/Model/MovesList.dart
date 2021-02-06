@@ -1,7 +1,7 @@
 class MovesList {
   int count;
   String next;
-  Null previous;
+  String previous;
   List<Results> results;
 
   MovesList({this.count, this.next, this.previous, this.results});

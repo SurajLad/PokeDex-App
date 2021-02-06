@@ -18,17 +18,22 @@ class _MovesListState extends State<MovesList> {
 
   @override
   void initState() {
-    _pagingController.addPageRequestListener((pageKey) {
-      _fetchPage(pageKey);
+    _pagingController.addPageRequestListener((pageUrl) {
+      _fetchPage(pageUrl);
     });
     super.initState();
   }
 
-  Future<void> _fetchPage(String pageKey) async {
+  @override
+  void dispose() {
+    _pagingController.dispose();
+    super.dispose();
+  }
+
+  Future<void> _fetchPage(String pageUrl) async {
     try {
-      print(pageKey);
-      final newItems = await APIHelper().getMoves(pageKey);
-      // final isLastPage = newItems.length < _pageSize;
+      print(pageUrl);
+      final newItems = await APIHelper().getMoves(pageUrl);
       if (newItems.next == null) {
         _pagingController.appendLastPage(newItems.results);
       } else {
@@ -94,36 +99,8 @@ class _MovesListState extends State<MovesList> {
                         ),
                       ),
                       const SizedBox(height: 20),
-                      // Container(
-                      //   width: ResponsiveHelper.instance.width,
-                      //   height: 40,
-                      //   decoration: BoxDecoration(
-                      //     color: const Color(0xFFEAEBF5),
-                      //     border: Border.all(color: Colors.black12),
-                      //     borderRadius: BorderRadius.circular(12),
-                      //   ),
-                      //   child: TextFormField(
-                      //     controller: homeController.filterTxtController,
-                      //     onChanged: (value) {
-                      //       homeController.onDataSearched();
-                      //     },
-                      //     decoration: InputDecoration(
-                      //       contentPadding: const EdgeInsets.all(4),
-                      //       prefixIcon: Icon(
-                      //         Icons.search,
-                      //         color: Colors.black54,
-                      //       ),
-                      //       hintText: "Search Pokemon.",
-                      //       hintStyle: AppTextStyle.smallBold.copyWith(
-                      //         color: Color(0xFF827A7D),
-                      //       ),
-                      //       border: InputBorder.none,
-                      //     ),
-                      //   ),
-                      // ),
-                      const SizedBox(height: 10),
                       Text(
-                        "This Pokedex contains detailed stats for every pokemon.",
+                        "This contains move details for every pokemon.",
                         style: AppTextStyle.regularBold.copyWith(
                           color: Color(0xFF827A7D),
                           fontSize: ResponsiveHelper.instance.fontSize - 4,
@@ -132,10 +109,10 @@ class _MovesListState extends State<MovesList> {
                       Expanded(
                           child: PagedListView<String, Results>(
                         pagingController: _pagingController,
+                        physics: BouncingScrollPhysics(),
                         builderDelegate: PagedChildBuilderDelegate<Results>(
-                          itemBuilder: (context, item, index) => TMTile(
-                            moves: item,
-                          ),
+                          itemBuilder: (context, item, index) =>
+                              TMTile(moves: item),
                         ),
                       )),
                     ],

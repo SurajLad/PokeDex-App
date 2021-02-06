@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:my_pokedex/Helpers/text_styles.dart';
 import 'package:my_pokedex/Model/MovesList.dart';
-import 'package:my_pokedex/Model/moves.dart';
+import 'package:my_pokedex/UI/Moves/move_detail.dart';
+import 'package:my_pokedex/Helpers/utility_helpers.dart';
 
 class TMTile extends StatefulWidget {
   final Results moves;
@@ -19,52 +19,37 @@ class _TMTileState extends State<TMTile> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: () {
+        showModalBottomSheet(
+          context: context,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(16),
+          ),
+          builder: (context) {
+            return MoveDetails(url: widget.moves.url);
+          },
+        );
+      },
       child: Container(
-        margin: const EdgeInsets.only(bottom: 8.0),
-        height: 80,
-        decoration: BoxDecoration(
-          //   border: Border.all(color: Colors.black38),
-          borderRadius: BorderRadius.circular(10),
-        ),
-        child: Stack(
-          children: [
-            Padding(
-              padding: const EdgeInsets.only(left: 12.0),
-              child: SizedBox(
-                  width: 90,
-                  height: 90,
-                  child: Image.asset('Assets/poke_ball.png')),
+          margin: const EdgeInsets.only(bottom: 8.0),
+          height: 80,
+          alignment: Alignment.center,
+          decoration: BoxDecoration(
+            border: Border.all(color: Colors.black38),
+            borderRadius: BorderRadius.circular(10),
+          ),
+          child: ListTile(
+            leading: Image.asset(
+              "Assets/poke_move.png",
+              height: 60,
+              color: Colors.grey[400],
             ),
-            Padding(
-              padding: const EdgeInsets.only(left: 110.0),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                mainAxisSize: MainAxisSize.max,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    widget.moves == null ? "pokemon.name" : widget.moves.name,
-                    style:
-                        AppTextStyle.regularBold.copyWith(color: Colors.black),
-                  ),
-                  const SizedBox(height: 5),
-                ],
-              ),
+            title: Text(
+              widget.moves == null
+                  ? "pokemon.name"
+                  : widget.moves.name.capitalizeFirst.replaceAll('-', " "),
             ),
-            Align(
-              alignment: Alignment.bottomRight,
-              child: Padding(
-                padding: const EdgeInsets.only(right: 8.0, bottom: 2),
-                child: Text(
-                  "#",
-                  style: AppTextStyle.largeBold.copyWith(color: Colors.white),
-                ),
-              ),
-            ),
-          ],
-        ),
-      ),
+          )),
     );
   }
 }
