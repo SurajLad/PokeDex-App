@@ -20,15 +20,7 @@ class _TMTileState extends State<TMTile> {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        showModalBottomSheet(
-          context: context,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(16),
-          ),
-          builder: (context) {
-            return MoveDetailSheet(url: widget.moves.url);
-          },
-        );
+        MoveDetailSheet(url: widget.moves.url);
       },
       child: Container(
           margin: const EdgeInsets.only(bottom: 8.0, left: 4, right: 4),

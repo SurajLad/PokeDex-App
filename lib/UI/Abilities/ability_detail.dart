@@ -1,4 +1,5 @@
 import 'package:cached_network_image_builder/cached_network_image_builder.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:my_pokedex/Helpers/api_helper.dart';
 import 'package:my_pokedex/Helpers/text_styles.dart';
@@ -24,11 +25,15 @@ class _AbilityDetailSheetState extends State<AbilityDetailSheet> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: abilityDetail != null
+    return DraggableScrollableSheet(
+      initialChildSize: 0.8,
+      maxChildSize: 1,
+      expand: false,
+      builder: (context, scrollController) => abilityDetail != null
           ? Container(
               margin: const EdgeInsets.only(left: 30, right: 10),
               child: SingleChildScrollView(
+                controller: scrollController,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -45,19 +50,24 @@ class _AbilityDetailSheetState extends State<AbilityDetailSheet> {
                     ),
                     const SizedBox(height: 15),
                     Text(
-                      "Pokemon",
-                      style: AppTextStyle.extraLargeBold
+                      "Pokemons",
+                      style: AppTextStyle.largeBold
                           .copyWith(color: Color(0xFFB4B5BE)),
                     ),
                     const SizedBox(height: 15),
+                    Text(
+                      "A list of Pokémon that could potentially have this ability.",
+                      style: AppTextStyle.smallBold,
+                    ),
+                    const SizedBox(height: 20),
                     SizedBox(
-                      width: 500,
                       height: 150,
                       child: ListView.builder(
                         scrollDirection: Axis.horizontal,
                         itemCount: abilityDetail.pokemon.length,
                         itemBuilder: (BuildContext context, int index) {
                           return Column(
+                            crossAxisAlignment: CrossAxisAlignment.center,
                             mainAxisSize: MainAxisSize.min,
                             children: [
                               Container(
@@ -98,7 +108,10 @@ class _AbilityDetailSheetState extends State<AbilityDetailSheet> {
             )
           : Padding(
               padding: const EdgeInsets.only(top: 18.0, bottom: 18.0),
-              child: Image.asset('Assets/loading.gif', height: 140),
+              child: Image.asset(
+                'Assets/loading.gif',
+                height: 140,
+              ),
             ),
     );
   }
