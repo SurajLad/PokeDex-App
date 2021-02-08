@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_pokedex/Model/MovesList.dart';
-import 'package:my_pokedex/Model/ability_detail.dart';
 import 'package:my_pokedex/UI/Abilities/ability_detail.dart';
+import 'package:my_pokedex/UI/Items/Item_detail_sheet.dart';
 import 'package:my_pokedex/UI/Moves/move_detail.dart';
 import 'package:my_pokedex/Helpers/utility_helpers.dart';
 
@@ -26,7 +26,10 @@ class _TMTileState extends State<TMTile> {
         showModalBottomSheet(
           context: context,
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(16),
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(12),
+              topRight: Radius.circular(12),
+            ),
           ),
           builder: (context) {
             switch (widget.type) {
@@ -36,6 +39,10 @@ class _TMTileState extends State<TMTile> {
 
               case 1:
                 return AbilityDetailSheet(url: widget.moves.url);
+                break;
+
+              case 2:
+                return ItemDetailSheet(url: widget.moves.url);
                 break;
 
               default:

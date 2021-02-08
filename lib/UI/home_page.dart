@@ -4,6 +4,7 @@ import 'package:my_pokedex/Controllers/home_controller.dart';
 import 'package:my_pokedex/UI/Abilities/ability_list_page.dart';
 import 'package:my_pokedex/UI/Moves/move_list.dart';
 import 'package:my_pokedex/UI/PokeDex_UI/pokemon_list.dart';
+import 'package:my_pokedex/UI/list_page.dart';
 import 'package:my_pokedex/Widgets/ImageButton.dart';
 
 class HomePage extends StatefulWidget {
@@ -118,7 +119,14 @@ class _HomePageState extends State<HomePage> {
                             ImageButton(
                               title: "Items",
                               color: Color(0xFFEDA926).withOpacity(0.8),
-                              function: () {},
+                              function: () {
+                                Get.to(ListPage(
+                                  url: "https://pokeapi.co/api/v2/item/",
+                                  title: "Items",
+                                  description:
+                                      "An item is an object in the games which the player can pick up, keep in their bag, and use in some manner. They have various uses, including healing, powering up, helping catch Pokémon, or to access a new area.",
+                                ));
+                              },
                             ),
                           ],
                         ),
@@ -157,25 +165,25 @@ class _HomePageState extends State<HomePage> {
                       fontSize: 20,
                     ),
                   ),
-                  Container(
-                    height: 200,
-                    child: GetBuilder<HomeController>(builder: (_) {
-                      return _.news == null
-                          ? SizedBox(
-                              width: 40,
-                              height: 40,
-                              child: CircularProgressIndicator(),
-                            )
-                          : ListView.builder(
-                              itemCount: _.news.articles.length,
-                              itemBuilder: (BuildContext context, int index) {
-                                return ListTile(
-                                  title: Text(_.news.articles[index].title),
-                                );
-                              },
-                            );
-                    }),
-                  ),
+                  // Container(
+                  //   height: 200,
+                  //   child: GetBuilder<HomeController>(builder: (_) {
+                  //     return _.news == null
+                  //         ? SizedBox(
+                  //             width: 40,
+                  //             height: 40,
+                  //             child: CircularProgressIndicator(),
+                  //           )
+                  //         : ListView.builder(
+                  //             itemCount: _.news.articles.length,
+                  //             itemBuilder: (BuildContext context, int index) {
+                  //               return ListTile(
+                  //                 title: Text(_.news.articles[index].title),
+                  //               );
+                  //             },
+                  //           );
+                  //   }),
+                  // ),
                 ],
               ),
             ),

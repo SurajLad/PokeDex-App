@@ -40,7 +40,7 @@ class HomeController extends GetxController {
       pokemonList = pokemonFromJson(dmap);
       searchList = pokemonList;
     });
-    news = await APIHelper().getNews();
+    //  news = await APIHelper().getNews();
     update();
   }
 }
