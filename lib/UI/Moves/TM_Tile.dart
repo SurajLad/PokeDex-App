@@ -4,6 +4,7 @@ import 'package:my_pokedex/UI/Abilities/ability_detail.dart';
 import 'package:my_pokedex/UI/Items/Item_detail_sheet.dart';
 import 'package:my_pokedex/UI/Moves/move_detail.dart';
 import 'package:my_pokedex/Helpers/utility_helpers.dart';
+import 'package:my_pokedex/UI/Types/type_details.dart';
 
 class TMTile extends StatefulWidget {
   final Results moves;
@@ -43,6 +44,10 @@ class _TMTileState extends State<TMTile> {
 
               case 2:
                 return ItemDetailSheet(url: widget.moves.url);
+                break;
+
+              case 3:
+                return TypeDetailsSheet(url: widget.moves.url);
                 break;
 
               default:

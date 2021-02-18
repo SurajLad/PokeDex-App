@@ -9,7 +9,8 @@ import 'package:my_pokedex/UI/Moves/TM_Tile.dart';
 
 class ListPage extends StatefulWidget {
   final String url, title, description;
-  ListPage({this.url, this.title, this.description});
+  final int type;
+  ListPage({this.url, this.title, this.description, this.type});
   @override
   _ListPageState createState() => _ListPageState();
 }
@@ -116,7 +117,7 @@ class _ListPageState extends State<ListPage> {
                         builderDelegate: PagedChildBuilderDelegate<Results>(
                           itemBuilder: (context, item, index) => TMTile(
                             moves: item,
-                            type: 2,
+                            type: widget.type,
                           ),
                         ),
                       )),

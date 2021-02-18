@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_pokedex/Helpers/api_helper.dart';
+import 'package:my_pokedex/Helpers/responsive_helper.dart';
 import 'package:my_pokedex/Helpers/text_styles.dart';
 import 'package:my_pokedex/Helpers/utility_helpers.dart';
 import 'package:my_pokedex/Model/item_detail.dart';
@@ -43,8 +44,14 @@ class _ItemDetailSheetState extends State<ItemDetailSheet> {
                     ),
                     const SizedBox(height: 20),
                     Text(
-                      description.replaceAll("\n\n", "\n").replaceAll("  ", ""),
-                      style: AppTextStyle.smallBold,
+                      description
+                          .replaceAll("\n\n", "\n")
+                          .replaceAll("  ", "")
+                          .replaceAll(": ", ""),
+                      style: AppTextStyle.regularBold.copyWith(
+                        color: Color(0xFF827A7D),
+                        fontSize: ResponsiveHelper.instance.fontSize - 4,
+                      ),
                     ),
                     const SizedBox(height: 20),
                     SizedBox(

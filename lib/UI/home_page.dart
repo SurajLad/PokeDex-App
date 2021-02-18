@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:my_pokedex/Controllers/home_controller.dart';
-import 'package:my_pokedex/UI/Abilities/ability_list_page.dart';
-import 'package:my_pokedex/UI/Moves/move_list.dart';
 import 'package:my_pokedex/UI/PokeDex_UI/pokemon_list.dart';
 import 'package:my_pokedex/UI/list_page.dart';
 import 'package:my_pokedex/Widgets/ImageButton.dart';
@@ -92,7 +90,9 @@ class _HomePageState extends State<HomePage> {
                               title: "Pokedex",
                               color: Color(0xFF36996D).withOpacity(0.8),
                               function: () {
-                                Get.to(PokeDexList());
+                                Get.to(
+                                  PokeDexList(),
+                                );
                               },
                             ),
                             const SizedBox(width: 15),
@@ -100,7 +100,15 @@ class _HomePageState extends State<HomePage> {
                               title: "Moves",
                               color: Color(0xFFC73B37).withOpacity(0.8),
                               function: () {
-                                Get.to(MovesList());
+                                Get.to(
+                                  ListPage(
+                                    url: "https://pokeapi.co/api/v2/move/",
+                                    title: "Moves",
+                                    description:
+                                        "Moves are the skills of Pokémon in battle. In battle, a Pokémon uses one move each turn. Some moves (including those learned by Hidden Machine) can be used outside of battle as well, usually for the purpose of removing obstacles or exploring new areas.",
+                                    type: 0,
+                                  ),
+                                );
                               },
                             ),
                           ],
@@ -112,7 +120,15 @@ class _HomePageState extends State<HomePage> {
                               title: "Abilities",
                               color: Color(0xFF2E6DD5).withOpacity(0.8),
                               function: () {
-                                Get.to(AbilityListPage());
+                                Get.to(
+                                  ListPage(
+                                    url: "https://pokeapi.co/api/v2/ability/",
+                                    title: "Abilities",
+                                    description:
+                                        "Abilities provide passive effects for Pokémon in battle or in the overworld. Pokémon have multiple possible abilities but can have only one ability at a time.",
+                                    type: 1,
+                                  ),
+                                );
                               },
                             ),
                             const SizedBox(width: 15),
@@ -120,12 +136,15 @@ class _HomePageState extends State<HomePage> {
                               title: "Items",
                               color: Color(0xFFEDA926).withOpacity(0.8),
                               function: () {
-                                Get.to(ListPage(
-                                  url: "https://pokeapi.co/api/v2/item/",
-                                  title: "Items",
-                                  description:
-                                      "An item is an object in the games which the player can pick up, keep in their bag, and use in some manner. They have various uses, including healing, powering up, helping catch Pokémon, or to access a new area.",
-                                ));
+                                Get.to(
+                                  ListPage(
+                                    url: "https://pokeapi.co/api/v2/item/",
+                                    title: "Items",
+                                    description:
+                                        "An item is an object in the games which the player can pick up, keep in their bag, and use in some manner. They have various uses, including healing, powering up, helping catch Pokémon, or to access a new area.",
+                                    type: 2,
+                                  ),
+                                );
                               },
                             ),
                           ],
@@ -142,7 +161,17 @@ class _HomePageState extends State<HomePage> {
                             ImageButton(
                               title: "Type",
                               color: Color(0xFF4C2E3C),
-                              function: () {},
+                              function: () {
+                                Get.to(
+                                  ListPage(
+                                    url: "https://pokeapi.co/api/v2/type/",
+                                    title: "Type",
+                                    description:
+                                        "Types are properties for Pokémon and their moves. Each type has three properties: which types of Pokémon it is super effective against, which types of Pokémon it is not very effective against, and which types of Pokémon it is completely ineffective against.",
+                                    type: 3,
+                                  ),
+                                );
+                              },
                             ),
                           ],
                         )

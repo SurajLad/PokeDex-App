@@ -48,25 +48,27 @@ class _MoveDetailSheetState extends State<MoveDetailSheet> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const SizedBox(height: 15),
+                      const SizedBox(height: 20),
                       Text(
                         moveDetails.name.capitalizeFirst.replaceAll('-', " "),
-                        style: AppTextStyle.extraLargeBold,
+                        style: AppTextStyle.extraLargeBold.copyWith(
+                          color: Color(0xFFe94a41),
+                        ),
                       ),
-                      const SizedBox(height: 15),
+                      const SizedBox(height: 25),
                       buildAboutInformation(
                           "Type", moveDetails.type.name.capitalizeFirst),
                       const SizedBox(height: 5),
                       buildAboutInformation(
-                          "Accuracy", moveDetails.accuracy.toString()),
+                          "Accuracy", moveDetails.accuracy.nullCheck),
                       const SizedBox(height: 5),
                       buildAboutInformation("PP", moveDetails.pp.toString()),
                       const SizedBox(height: 5),
                       buildAboutInformation(
-                          "Power", moveDetails.power.toString()),
+                          "Power", moveDetails.power.nullCheck),
                       const SizedBox(height: 5),
                       buildAboutInformation(
-                          "Priority", moveDetails.priority.toString()),
+                          "Priority", moveDetails.priority.nullCheck),
                       const SizedBox(height: 15),
                       Text(
                         "Other Information",
@@ -80,16 +82,16 @@ class _MoveDetailSheetState extends State<MoveDetailSheet> {
                           moveDetails.damageClass.name.capitalizeFirst),
                       const SizedBox(height: 5),
                       buildAboutInformation("Flinch chance",
-                          moveDetails.meta.flinchChance.toString()),
+                          moveDetails.meta.flinchChance.nullCheck),
                       const SizedBox(height: 5),
                       buildAboutInformation(
-                          "Healing", moveDetails.meta.healing.toString()),
-                      const SizedBox(height: 5),
-                      buildAboutInformation("Stat chance",
-                          moveDetails.meta.statChance.toString()),
+                          "Healing", moveDetails.meta.healing.nullCheck),
                       const SizedBox(height: 5),
                       buildAboutInformation(
-                          "Crit rate ", moveDetails.meta.critRate.toString()),
+                          "Stat chance", moveDetails.meta.statChance.nullCheck),
+                      const SizedBox(height: 5),
+                      buildAboutInformation(
+                          "Crit rate ", moveDetails.meta.critRate.nullCheck),
                     ],
                   ),
                 ),

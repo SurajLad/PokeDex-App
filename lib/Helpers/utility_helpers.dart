@@ -6,6 +6,10 @@ extension StringUtils on String {
       this[0].toUpperCase() + this.substring(1).toLowerCase();
 }
 
+extension Intutils on int {
+  String get nullCheck => this != null ? this.toString() : "N/A";
+}
+
 Row buildAboutInformation(String title, String information) {
   return Row(
     mainAxisSize: MainAxisSize.max,
