@@ -6,6 +6,7 @@ import 'package:my_pokedex/Model/ability_detail.dart';
 import 'package:my_pokedex/Model/item_detail.dart';
 import 'package:my_pokedex/Model/news.dart';
 import 'package:my_pokedex/Model/pokemonAPI.dart';
+import 'package:my_pokedex/models/type.dart';
 
 class APIHelper {
   static Dio dio;
@@ -128,5 +129,22 @@ class APIHelper {
       return null;
     });
     return itemDetail;
+  }
+
+  Future<TypeDetail> getTypeDetail(String url) async {
+    TypeDetail typeDetail;
+
+    await dio.get(url).then((receivedResponse) {
+      Response response = receivedResponse;
+      if (response.statusCode == 200) {
+        typeDetail = TypeDetail.fromJson(response.data);
+      } else {
+        return null;
+      }
+    }).catchError((onError) {
+      print("Error : " + onError.toString());
+      return null;
+    });
+    return typeDetail;
   }
 }
