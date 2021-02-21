@@ -6,11 +6,12 @@ import 'package:my_pokedex/Helpers/responsive_helper.dart';
 import 'package:my_pokedex/Helpers/text_styles.dart';
 import 'package:my_pokedex/Model/MovesList.dart';
 import 'package:my_pokedex/UI/Moves/TM_Tile.dart';
+import 'package:my_pokedex/utitliy/constants.dart';
 
 class ListPage extends StatefulWidget {
-  final String url, title, description;
+  final String url, title, description, imgUrl;
   final int type;
-  ListPage({this.url, this.title, this.description, this.type});
+  ListPage({this.url, this.title, this.description, this.type, this.imgUrl});
   @override
   _ListPageState createState() => _ListPageState();
 }
@@ -118,6 +119,7 @@ class _ListPageState extends State<ListPage> {
                           itemBuilder: (context, item, index) => TMTile(
                             moves: item,
                             type: widget.type,
+                            imgUrl: widget.imgUrl,
                           ),
                         ),
                       )),

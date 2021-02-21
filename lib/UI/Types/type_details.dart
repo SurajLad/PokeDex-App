@@ -75,6 +75,9 @@ class _TypeDetailsSheetState extends State<TypeDetailsSheet> {
                       list: typeDetail.damageRelations.noDamageTo,
                     ),
                     const SizedBox(height: 20),
+                    buildAboutInformation("Damage Type",
+                        typeDetail.moveDamageClass.name.capitalizeFirst),
+                    const SizedBox(height: 20),
                   ],
                 ),
               ),
@@ -95,7 +98,7 @@ class _TypeDetailsSheetState extends State<TypeDetailsSheet> {
         Expanded(
           flex: 4,
           child: Text(
-            title,
+            title.capitalizeFirst,
             style: AppTextStyle.regularBold.copyWith(
               color: Color(0xFF827A7D),
               fontSize: ResponsiveHelper.instance.fontSize - 4,
@@ -109,10 +112,7 @@ class _TypeDetailsSheetState extends State<TypeDetailsSheet> {
             child: list.isEmpty
                 ? Text(
                     "No Data",
-                    style: AppTextStyle.regularBold.copyWith(
-                        color: Color(0xFF827A7D),
-                        fontSize: ResponsiveHelper.instance.fontSize - 4,
-                        fontWeight: FontWeight.bold),
+                    style: AppTextStyle.smallBold,
                   )
                 : ListView.builder(
                     shrinkWrap: true,
@@ -121,7 +121,7 @@ class _TypeDetailsSheetState extends State<TypeDetailsSheet> {
                     scrollDirection: Axis.horizontal,
                     itemBuilder: (context, index) {
                       return Tooltip(
-                        message: list[index].name,
+                        message: list[index].name.toString().capitalizeFirst,
                         child: Container(
                           padding: const EdgeInsets.all(4.0),
                           child: SvgPicture.asset(

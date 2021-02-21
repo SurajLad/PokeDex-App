@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:my_pokedex/Controllers/home_controller.dart';
+import 'package:my_pokedex/Helpers/text_styles.dart';
 import 'package:my_pokedex/UI/PokeDex_UI/pokemon_list.dart';
 import 'package:my_pokedex/UI/list_page.dart';
 import 'package:my_pokedex/Widgets/ImageButton.dart';
@@ -10,213 +11,172 @@ class HomePage extends StatefulWidget {
   _HomePageState createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
+  AnimationController animationController;
   HomeController homeController = Get.put(HomeController());
+
+  @override
+  void initState() {
+    animationController = AnimationController(
+      vsync: this,
+      duration: Duration(seconds: 2),
+    );
+    animationController.forward();
+    animationController.repeat();
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    animationController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFEAEBF5),
+      backgroundColor: Colors.white,
       body: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Container(
-              width: Get.width,
-              height: Get.height / 1.4,
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.only(
-                  bottomLeft: Radius.circular(30),
-                  bottomRight: Radius.circular(30),
+        child: Container(
+          width: Get.width,
+          height: Get.height,
+          child: Stack(
+            children: [
+              Positioned(
+                left: Get.width - 150,
+                bottom: (Get.height / 1.35),
+                child: RotationTransition(
+                  turns:
+                      Tween(begin: 0.0, end: 1.0).animate(animationController),
+                  child: Image.asset(
+                    'Assets/pokemon_ball.png',
+                    width: 230,
+                    height: 230,
+                    color: Colors.black12,
+                  ),
                 ),
               ),
-              child: Stack(
-                children: [
-                  Positioned(
-                    left: Get.width - 160,
-                    bottom: (Get.height / 2.25),
-                    child: Image.asset(
-                      'Assets/poke_ball.png',
-                      width: 230,
-                      height: 230,
+              Positioned(
+                left: 35,
+                top: 80,
+                right: 25,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Text(
+                      "Hey Trainer,",
+                      style: AppTextStyle.small,
                     ),
-                  ),
-                  Positioned(
-                    left: 35,
-                    top: 80,
-                    right: 25,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        Text(
-                          "Hey Trainer,",
-                          style: TextStyle(fontSize: 18),
-                        ),
-                        const SizedBox(height: 10),
-                        Text(
-                          "Which pokemon\nyou are looking for?",
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 22,
-                          ),
-                        ),
-                        const SizedBox(height: 30),
-                        Container(
-                          width: Get.width,
-                          height: 40,
-                          decoration: BoxDecoration(
-                            color: Color(0xFFEAEBF5),
-                            borderRadius: BorderRadius.circular(16),
-                          ),
-                          child: TextFormField(
-                            decoration: InputDecoration(
-                              contentPadding: const EdgeInsets.all(4),
-                              prefixIcon: Icon(
-                                Icons.search,
-                                color: Colors.black54,
-                              ),
-                              hintText: "Search Pokemon.",
-                              hintStyle: TextStyle(),
-                              border: InputBorder.none,
-                            ),
-                          ),
-                        ),
-                        const SizedBox(height: 20),
-                        Row(
-                          children: [
-                            ImageButton(
-                              title: "Pokedex",
-                              color: Color(0xFF36996D).withOpacity(0.8),
-                              function: () {
-                                Get.to(
-                                  PokeDexList(),
-                                );
-                              },
-                            ),
-                            const SizedBox(width: 15),
-                            ImageButton(
-                              title: "Moves",
-                              color: Color(0xFFC73B37).withOpacity(0.8),
-                              function: () {
-                                Get.to(
-                                  ListPage(
-                                    url: "https://pokeapi.co/api/v2/move/",
-                                    title: "Moves",
-                                    description:
-                                        "Moves are the skills of Pokémon in battle. In battle, a Pokémon uses one move each turn. Some moves (including those learned by Hidden Machine) can be used outside of battle as well, usually for the purpose of removing obstacles or exploring new areas.",
-                                    type: 0,
-                                  ),
-                                );
-                              },
-                            ),
-                          ],
-                        ),
-                        const SizedBox(height: 10),
-                        Row(
-                          children: [
-                            ImageButton(
-                              title: "Abilities",
-                              color: Color(0xFF2E6DD5).withOpacity(0.8),
-                              function: () {
-                                Get.to(
-                                  ListPage(
-                                    url: "https://pokeapi.co/api/v2/ability/",
-                                    title: "Abilities",
-                                    description:
-                                        "Abilities provide passive effects for Pokémon in battle or in the overworld. Pokémon have multiple possible abilities but can have only one ability at a time.",
-                                    type: 1,
-                                  ),
-                                );
-                              },
-                            ),
-                            const SizedBox(width: 15),
-                            ImageButton(
-                              title: "Items",
-                              color: Color(0xFFEDA926).withOpacity(0.8),
-                              function: () {
-                                Get.to(
-                                  ListPage(
-                                    url: "https://pokeapi.co/api/v2/item/",
-                                    title: "Items",
-                                    description:
-                                        "An item is an object in the games which the player can pick up, keep in their bag, and use in some manner. They have various uses, including healing, powering up, helping catch Pokémon, or to access a new area.",
-                                    type: 2,
-                                  ),
-                                );
-                              },
-                            ),
-                          ],
-                        ),
-                        const SizedBox(height: 10),
-                        Row(
-                          children: [
-                            ImageButton(
-                              title: "Locations ",
-                              color: Color(0xFF4F1091),
-                              function: () {},
-                            ),
-                            const SizedBox(width: 15),
-                            ImageButton(
-                              title: "Type",
-                              color: Color(0xFF4C2E3C),
-                              function: () {
-                                Get.to(
-                                  ListPage(
-                                    url: "https://pokeapi.co/api/v2/type/",
-                                    title: "Type",
-                                    description:
-                                        "Types are properties for Pokémon and their moves. Each type has three properties: which types of Pokémon it is super effective against, which types of Pokémon it is not very effective against, and which types of Pokémon it is completely ineffective against.",
-                                    type: 3,
-                                  ),
-                                );
-                              },
-                            ),
-                          ],
-                        )
-                      ],
+                    const SizedBox(height: 10),
+                    Text(
+                      "What are you \nare looking for?",
+                      style: AppTextStyle.largeBold,
                     ),
-                  ),
-                ],
+                    const SizedBox(height: 20),
+                    ImageButton(
+                      title: "Pokedex",
+                      color: const Color(0xFF36996D).withOpacity(0.8),
+                      function: () {
+                        Get.to(PokeDexList());
+                      },
+                      imgUrl: "Assets/poke_ball.png",
+                    ),
+                    const SizedBox(height: 10),
+                    ImageButton(
+                      title: "Moves",
+                      color: const Color(0xFFC73B37).withOpacity(0.8),
+                      function: () {
+                        Get.to(
+                          ListPage(
+                            url: "https://pokeapi.co/api/v2/move/",
+                            title: "Moves",
+                            description:
+                                "Moves are the skills of Pokémon in battle. In battle, a Pokémon uses one move each turn. Some moves (including those learned by Hidden Machine) can be used outside of battle as well, usually for the purpose of removing obstacles or exploring new areas.",
+                            type: 0,
+                            imgUrl: "Assets/poke_move.png",
+                          ),
+                        );
+                      },
+                      imgUrl: "Assets/poke_move.png",
+                    ),
+                    const SizedBox(height: 10),
+                    ImageButton(
+                      title: "Abilities",
+                      color: const Color(0xFFEDA926).withOpacity(0.8),
+                      function: () {
+                        Get.to(
+                          ListPage(
+                            url: "https://pokeapi.co/api/v2/ability/",
+                            title: "Abilities",
+                            description:
+                                "Abilities provide passive effects for Pokémon in battle or in the overworld. Pokémon have multiple possible abilities but can have only one ability at a time.",
+                            type: 1,
+                            imgUrl: "Assets/poke_abilities.png",
+                          ),
+                        );
+                      },
+                      imgUrl: "Assets/poke_abilities.png",
+                    ),
+                    const SizedBox(height: 10),
+                    ImageButton(
+                      title: "Items",
+                      color: const Color(0xFF2E6DD5).withOpacity(0.8),
+                      function: () {
+                        Get.to(
+                          ListPage(
+                            url: "https://pokeapi.co/api/v2/item/",
+                            title: "Items",
+                            description:
+                                "An item is an object in the games which the player can pick up, keep in their bag, and use in some manner. They have various uses, including healing, powering up, helping catch Pokémon, or to access a new area.",
+                            type: 2,
+                            imgUrl: "Assets/poke_items.png",
+                          ),
+                        );
+                      },
+                      imgUrl: "Assets/poke_items.png",
+                    ),
+                    const SizedBox(height: 10),
+                    ImageButton(
+                      title: "Region",
+                      color: const Color(0xFF4F1091),
+                      function: () {
+                        Get.to(
+                          ListPage(
+                            url: "https://pokeapi.co/api/v2/region/",
+                            title: "Regions",
+                            description:
+                                "A region is an organized area of the Pokémon world. Most often, the main difference between regions is the species of Pokémon that can be encountered within them.",
+                            type: 4,
+                            imgUrl: "Assets/poke_region.png",
+                          ),
+                        );
+                      },
+                      imgUrl: "Assets/poke_region.png",
+                    ),
+                    const SizedBox(height: 10),
+                    ImageButton(
+                      title: "Type",
+                      color: const Color(0xFF4C2E3C),
+                      function: () {
+                        Get.to(
+                          ListPage(
+                            url: "https://pokeapi.co/api/v2/type/",
+                            title: "Type",
+                            description:
+                                "Types are properties for Pokémon and their moves. Each type has three properties: which types of Pokémon it is super effective against, which types of Pokémon it is not very effective against, and which types of Pokémon it is completely ineffective against.",
+                            type: 3,
+                            imgUrl: "Assets/poke_region.png",
+                          ),
+                        );
+                      },
+                      imgUrl: "Assets/pokemon_ball.png",
+                    ),
+                  ],
+                ),
               ),
-            ),
-            const SizedBox(height: 15),
-            Container(
-              margin: const EdgeInsets.only(left: 30, right: 30),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    "News",
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 20,
-                    ),
-                  ),
-                  // Container(
-                  //   height: 200,
-                  //   child: GetBuilder<HomeController>(builder: (_) {
-                  //     return _.news == null
-                  //         ? SizedBox(
-                  //             width: 40,
-                  //             height: 40,
-                  //             child: CircularProgressIndicator(),
-                  //           )
-                  //         : ListView.builder(
-                  //             itemCount: _.news.articles.length,
-                  //             itemBuilder: (BuildContext context, int index) {
-                  //               return ListTile(
-                  //                 title: Text(_.news.articles[index].title),
-                  //               );
-                  //             },
-                  //           );
-                  //   }),
-                  // ),
-                ],
-              ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
