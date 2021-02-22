@@ -195,23 +195,26 @@ class _PokemonDetailState extends State<PokemonDetail>
               Positioned(
                 top: 150,
                 left: ResponsiveHelper.instance.width / 4.5,
-                child: SizedBox(
-                  width: ResponsiveHelper.instance.width / 1.85,
-                  height: ResponsiveHelper.instance.width / 1.85,
-                  child: CachedNetworkImageBuilder(
-                    url: "https://pokeres.bastionbot.org/images/pokemon/" +
-                        widget.pokemon.dex.toString() +
-                        ".png",
-                    builder: (image) {
-                      return Image.file(image);
-                    },
-                    placeHolder: SizedBox(
-                      height: 20,
-                      width: 20,
-                      child: Image.asset('Assets/loading.gif'),
+                child: Hero(
+                  tag: widget.pokemon.id,
+                  child: SizedBox(
+                    width: ResponsiveHelper.instance.width / 1.85,
+                    height: ResponsiveHelper.instance.width / 1.85,
+                    child: CachedNetworkImageBuilder(
+                      url: "https://pokeres.bastionbot.org/images/pokemon/" +
+                          widget.pokemon.dex.toString() +
+                          ".png",
+                      builder: (image) {
+                        return Image.file(image);
+                      },
+                      placeHolder: SizedBox(
+                        height: 20,
+                        width: 20,
+                        child: Image.asset('Assets/loading.gif'),
+                      ),
+                      errorWidget: Image.asset('Assets/poke_ball.png'),
+                      imageExtensions: ['jpg', 'png'],
                     ),
-                    errorWidget: Image.asset('Assets/poke_ball.png'),
-                    imageExtensions: ['jpg', 'png'],
                   ),
                 ),
               ),

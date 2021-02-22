@@ -33,6 +33,7 @@ dependencies:
   flutter_svg: ^0.20.0-nullsafety.3
   line_icons: ^0.2.0
   infinite_scroll_pagination: ^2.3.0
+  flare_flutter: ^2.0.6
 
 dev_dependencies:
   flutter_test:

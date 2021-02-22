@@ -78,7 +78,11 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                       title: "Pokedex",
                       color: const Color(0xFF36996D).withOpacity(0.8),
                       function: () {
-                        Get.to(PokeDexList());
+                        Get.to(
+                          PokeDexList(),
+                          curve: Curves.bounceInOut,
+                          duration: Duration(milliseconds: 400),
+                        );
                       },
                       imgUrl: "Assets/poke_ball.png",
                     ),
@@ -96,6 +100,8 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                             type: 0,
                             imgUrl: "Assets/poke_move.png",
                           ),
+                          curve: Curves.bounceInOut,
+                          duration: Duration(milliseconds: 400),
                         );
                       },
                       imgUrl: "Assets/poke_move.png",
@@ -114,6 +120,8 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                             type: 1,
                             imgUrl: "Assets/poke_abilities.png",
                           ),
+                          curve: Curves.bounceInOut,
+                          duration: Duration(milliseconds: 400),
                         );
                       },
                       imgUrl: "Assets/poke_abilities.png",
@@ -132,6 +140,8 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                             type: 2,
                             imgUrl: "Assets/poke_items.png",
                           ),
+                          curve: Curves.bounceInOut,
+                          duration: Duration(milliseconds: 400),
                         );
                       },
                       imgUrl: "Assets/poke_items.png",
@@ -150,6 +160,8 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                             type: 4,
                             imgUrl: "Assets/poke_region.png",
                           ),
+                          curve: Curves.bounceInOut,
+                          duration: Duration(milliseconds: 400),
                         );
                       },
                       imgUrl: "Assets/poke_region.png",
@@ -168,6 +180,8 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                             type: 3,
                             imgUrl: "Assets/poke_region.png",
                           ),
+                          curve: Curves.bounceInOut,
+                          duration: Duration(milliseconds: 400),
                         );
                       },
                       imgUrl: "Assets/pokemon_ball.png",

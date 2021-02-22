@@ -1,9 +1,8 @@
 import 'dart:async';
-
+import 'package:flare_flutter/flare_actor.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:my_pokedex/Helpers/responsive_helper.dart';
-import 'package:my_pokedex/Helpers/text_styles.dart';
 import 'package:my_pokedex/UI/home_page.dart';
 
 class SplashPage extends StatefulWidget {
@@ -14,9 +13,10 @@ class SplashPage extends StatefulWidget {
 class _SplashPageState extends State<SplashPage> {
   @override
   void initState() {
-    Timer(Duration(seconds: 3), () {
+    Timer(Duration(milliseconds: 3200), () {
       Get.off(HomePage());
     });
+
     super.initState();
   }
 
@@ -27,13 +27,13 @@ class _SplashPageState extends State<SplashPage> {
     ResponsiveHelper.instance.height = Get.height;
     ResponsiveHelper.instance.fontSize = Get.width > 300 ? 18 : 16;
     ResponsiveHelper.instance.titleFontSize = Get.width > 300 ? 22 : 20;
-
     return Scaffold(
-      body: Center(
-        child: Text(
-          "PokeDex App",
-          style: AppTextStyle.largeBold,
-        ),
+      body: FlareActor(
+        "Assets/poke_splash.flr",
+        alignment: Alignment.center,
+        fit: BoxFit.contain,
+        animation: "idle",
+        antialias: true,
       ),
     );
   }
