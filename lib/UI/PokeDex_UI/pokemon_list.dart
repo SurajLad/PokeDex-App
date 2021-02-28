@@ -35,8 +35,8 @@ class _PokeDexListState extends State<PokeDexList> {
           child: Stack(
             children: [
               Positioned(
-                left: Get.width - 160,
-                bottom: (Get.height / 1.45),
+                left: Get.width - 150,
+                bottom: (Get.height / 1.35),
                 child: Image.asset(
                   'Assets/poke_ball.png',
                   width: 230,

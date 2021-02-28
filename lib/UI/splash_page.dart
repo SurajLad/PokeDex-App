@@ -13,7 +13,7 @@ class SplashPage extends StatefulWidget {
 class _SplashPageState extends State<SplashPage> {
   @override
   void initState() {
-    Timer(Duration(milliseconds: 3200), () {
+    Timer(Duration(milliseconds: 2800), () {
       Get.off(HomePage());
     });
 

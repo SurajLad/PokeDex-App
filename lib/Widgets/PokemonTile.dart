@@ -26,7 +26,7 @@ class PokemonTile extends StatelessWidget {
           margin: const EdgeInsets.only(bottom: 8.0),
           height: 80,
           decoration: BoxDecoration(
-            color: pokemonTypeMap[pokemon.types[0].name].withOpacity(0.6),
+            color: pokemonTypeMap[pokemon.types[0].name].withOpacity(0.7),
             //   border: Border.all(color: Colors.black38),
             borderRadius: BorderRadius.circular(10),
           ),

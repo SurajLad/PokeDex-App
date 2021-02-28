@@ -73,7 +73,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                       "What are you \nare looking for?",
                       style: AppTextStyle.largeBold,
                     ),
-                    const SizedBox(height: 20),
+                    const SizedBox(height: 30),
                     ImageButton(
                       title: "Pokedex",
                       color: const Color(0xFF36996D).withOpacity(0.8),

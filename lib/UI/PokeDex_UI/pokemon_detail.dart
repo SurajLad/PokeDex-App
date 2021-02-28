@@ -58,7 +58,7 @@ class _PokemonDetailState extends State<PokemonDetail>
             children: [
               Positioned(
                 left: ResponsiveHelper.instance.width - 160,
-                bottom: (ResponsiveHelper.instance.height / 1.45),
+                bottom: (ResponsiveHelper.instance.height / 1.35),
                 child: RotationTransition(
                   turns:
                       Tween(begin: 0.0, end: 1.0).animate(animationController),
@@ -138,7 +138,7 @@ class _PokemonDetailState extends State<PokemonDetail>
                 top: 130 + (ResponsiveHelper.instance.width / 1.85),
                 child: Container(
                   width: ResponsiveHelper.instance.width,
-                  height: ResponsiveHelper.instance.height / 2,
+                  height: ResponsiveHelper.instance.height,
                   decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.only(
