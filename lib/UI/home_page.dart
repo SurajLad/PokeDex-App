@@ -66,7 +66,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                   children: [
                     Text(
                       "Hey Trainer,",
-                      style: AppTextStyle.small,
+                      style: AppTextStyle.smallBold,
                     ),
                     const SizedBox(height: 10),
                     Text(

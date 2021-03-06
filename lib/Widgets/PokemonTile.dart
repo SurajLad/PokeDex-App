@@ -20,19 +20,19 @@ class PokemonTile extends StatelessWidget {
         Get.to(PokemonDetail(pokemon: pokemon),
             duration: Duration(milliseconds: 700));
       },
-      child: Hero(
-        tag: pokemon.id,
-        child: Container(
-          margin: const EdgeInsets.only(bottom: 8.0),
-          height: 80,
-          decoration: BoxDecoration(
-            color: pokemonTypeMap[pokemon.types[0].name].withOpacity(0.7),
-            //   border: Border.all(color: Colors.black38),
-            borderRadius: BorderRadius.circular(10),
-          ),
-          child: Stack(
-            children: [
-              Padding(
+      child: Container(
+        margin: const EdgeInsets.only(bottom: 8.0),
+        height: 80,
+        decoration: BoxDecoration(
+          color: pokemonTypeMap[pokemon.types[0].name].withOpacity(0.7),
+          //   border: Border.all(color: Colors.black38),
+          borderRadius: BorderRadius.circular(10),
+        ),
+        child: Stack(
+          children: [
+            Hero(
+              tag: pokemon.id,
+              child: Padding(
                 padding: const EdgeInsets.only(left: 12.0),
                 child: SizedBox(
                   width: 90,
@@ -53,61 +53,61 @@ class PokemonTile extends StatelessWidget {
                   ),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.only(left: 110.0),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  mainAxisSize: MainAxisSize.max,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      pokemon.name,
-                      style: AppTextStyle.regularBold
-                          .copyWith(color: Colors.white),
-                    ),
-                    const SizedBox(height: 5),
-                    SizedBox(
-                      height: 25,
-                      child: ListView.builder(
-                        shrinkWrap: true,
-                        itemCount: pokemon.types.length,
-                        physics: NeverScrollableScrollPhysics(),
-                        scrollDirection: Axis.horizontal,
-                        itemBuilder: (context, index) {
-                          return Container(
-                            padding: const EdgeInsets.all(4.0),
-                            decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              color: Colors.white,
-                            ),
-                            child: SvgPicture.asset(
-                              "Assets/pokemon_type_icons/" +
-                                  pokemon.types[index].name +
-                                  ".svg",
-                              color: pokemonTypeMap[pokemon.types[index].name],
-                              placeholderBuilder: (context) =>
-                                  Image.asset('Assets/poke_ball.png'),
-                              width: 20,
-                            ),
-                          );
-                        },
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Align(
-                alignment: Alignment.bottomRight,
-                child: Padding(
-                  padding: const EdgeInsets.only(right: 8.0, bottom: 2),
-                  child: Text(
-                    "#" + index.toString(),
-                    style: AppTextStyle.largeBold.copyWith(color: Colors.white),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 110.0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisSize: MainAxisSize.max,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    pokemon.name,
+                    style:
+                        AppTextStyle.regularBold.copyWith(color: Colors.white),
                   ),
+                  const SizedBox(height: 5),
+                  SizedBox(
+                    height: 25,
+                    child: ListView.builder(
+                      shrinkWrap: true,
+                      itemCount: pokemon.types.length,
+                      physics: NeverScrollableScrollPhysics(),
+                      scrollDirection: Axis.horizontal,
+                      itemBuilder: (context, index) {
+                        return Container(
+                          padding: const EdgeInsets.all(4.0),
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: Colors.white,
+                          ),
+                          child: SvgPicture.asset(
+                            "Assets/pokemon_type_icons/" +
+                                pokemon.types[index].name +
+                                ".svg",
+                            color: pokemonTypeMap[pokemon.types[index].name],
+                            placeholderBuilder: (context) =>
+                                Image.asset('Assets/poke_ball.png'),
+                            width: 20,
+                          ),
+                        );
+                      },
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Align(
+              alignment: Alignment.bottomRight,
+              child: Padding(
+                padding: const EdgeInsets.only(right: 8.0, bottom: 2),
+                child: Text(
+                  "#" + index.toString(),
+                  style: AppTextStyle.largeBold.copyWith(color: Colors.white),
                 ),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );

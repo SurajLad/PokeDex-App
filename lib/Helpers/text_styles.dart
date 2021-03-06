@@ -32,29 +32,29 @@ class AppTextStyle {
   static TextStyle smallBold = TextStyle(
     fontSize: ResponsiveHelper.instance.fontSize - 4,
     color: Colors.black,
-    fontWeight: FontWeight.w500,
+    fontWeight: FontWeight.w900,
   );
   static TextStyle regularBold = TextStyle(
     fontSize: ResponsiveHelper.instance.fontSize,
     color: Colors.black,
-    fontWeight: FontWeight.w500,
+    fontWeight: FontWeight.w900,
   );
 
   static TextStyle mediumBold = TextStyle(
     fontSize: ResponsiveHelper.instance.fontSize + 2,
     color: Colors.black,
-    fontWeight: FontWeight.w500,
+    fontWeight: FontWeight.w900,
   );
 
   static TextStyle largeBold = TextStyle(
     fontSize: ResponsiveHelper.instance.fontSize + 4,
     color: Colors.black,
-    fontWeight: FontWeight.bold,
+    fontWeight: FontWeight.w900,
   );
 
   static TextStyle extraLargeBold = TextStyle(
     fontSize: ResponsiveHelper.instance.fontSize + 8,
     color: Colors.black,
-    fontWeight: FontWeight.bold,
+    fontWeight: FontWeight.w900,
   );
 }

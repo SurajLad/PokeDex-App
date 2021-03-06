@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'PokeDex',
       theme: ThemeData(
-        // fontFamily: 'Montserrat-Regular',
+        fontFamily: 'Quicksand-Regular',
         primarySwatch: Colors.blue,
       ),
       home: SplashPage(),

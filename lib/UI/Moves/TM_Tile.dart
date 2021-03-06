@@ -37,6 +37,7 @@ class _TMTileState extends State<TMTile> {
                 topRight: Radius.circular(12),
               ),
             ),
+            isScrollControlled: true,
             builder: (context) {
               switch (widget.type) {
                 case 0:

@@ -25,7 +25,7 @@ class _ItemDetailSheetState extends State<ItemDetailSheet> {
   @override
   Widget build(BuildContext context) {
     return DraggableScrollableSheet(
-      initialChildSize: 0.8,
+      initialChildSize: 0.5,
       maxChildSize: 1,
       expand: false,
       builder: (context, scrollController) => itemDetail != null
@@ -116,6 +116,8 @@ class _ItemDetailSheetState extends State<ItemDetailSheet> {
           ? description = element.effect
           : description = "";
     });
-    setState(() {});
+    if (mounted) {
+      setState(() {});
+    }
   }
 }

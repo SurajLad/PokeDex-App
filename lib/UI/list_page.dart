@@ -6,7 +6,6 @@ import 'package:my_pokedex/Helpers/responsive_helper.dart';
 import 'package:my_pokedex/Helpers/text_styles.dart';
 import 'package:my_pokedex/Model/MovesList.dart';
 import 'package:my_pokedex/UI/Moves/TM_Tile.dart';
-import 'package:my_pokedex/utitliy/constants.dart';
 
 class ListPage extends StatefulWidget {
   final String url, title, description, imgUrl;

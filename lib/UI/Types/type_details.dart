@@ -27,59 +27,56 @@ class _TypeDetailsSheetState extends State<TypeDetailsSheet> {
   @override
   Widget build(BuildContext context) {
     return DraggableScrollableSheet(
+      expand: false,
       initialChildSize: 0.8,
       maxChildSize: 1,
-      expand: false,
       builder: (context, scrollController) => typeDetail != null
           ? Container(
               margin: const EdgeInsets.only(left: 30, right: 10),
-              child: SingleChildScrollView(
-                controller: scrollController,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const SizedBox(height: 20),
-                    Text(
-                      typeDetail.name.capitalizeFirst.replaceAll('-', " "),
-                      style: AppTextStyle.extraLargeBold
-                          .copyWith(color: Color(0xFFe94a41)),
-                    ),
-                    const SizedBox(height: 20),
-                    buildDamageWidget(
-                      title: "Double Damage\nFrom : ",
-                      list: typeDetail.damageRelations.doubleDamageFrom,
-                    ),
-                    const SizedBox(height: 20),
-                    buildDamageWidget(
-                      title: "Double Damage\nTo : ",
-                      list: typeDetail.damageRelations.doubleDamageTo,
-                    ),
-                    const SizedBox(height: 20),
-                    buildDamageWidget(
-                      title: "Half Damage\From : ",
-                      list: typeDetail.damageRelations.halfDamageFrom,
-                    ),
-                    const SizedBox(height: 20),
-                    buildDamageWidget(
-                      title: "Half Damage\nTo : ",
-                      list: typeDetail.damageRelations.halfDamageTo,
-                    ),
-                    const SizedBox(height: 20),
-                    buildDamageWidget(
-                      title: "No Damage\nFrom : ",
-                      list: typeDetail.damageRelations.noDamageFrom,
-                    ),
-                    const SizedBox(height: 20),
-                    buildDamageWidget(
-                      title: "No Damage\nTo : ",
-                      list: typeDetail.damageRelations.noDamageTo,
-                    ),
-                    const SizedBox(height: 20),
-                    buildAboutInformation("Damage Type",
-                        typeDetail.moveDamageClass.name.capitalizeFirst),
-                    const SizedBox(height: 20),
-                  ],
-                ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const SizedBox(height: 20),
+                  Text(
+                    typeDetail.name.capitalizeFirst.replaceAll('-', " "),
+                    style: AppTextStyle.extraLargeBold
+                        .copyWith(color: Color(0xFFe94a41)),
+                  ),
+                  const SizedBox(height: 20),
+                  buildDamageWidget(
+                    title: "Double Damage\nFrom : ",
+                    list: typeDetail.damageRelations.doubleDamageFrom,
+                  ),
+                  const SizedBox(height: 20),
+                  buildDamageWidget(
+                    title: "Double Damage\nTo : ",
+                    list: typeDetail.damageRelations.doubleDamageTo,
+                  ),
+                  const SizedBox(height: 20),
+                  buildDamageWidget(
+                    title: "Half Damage\From : ",
+                    list: typeDetail.damageRelations.halfDamageFrom,
+                  ),
+                  const SizedBox(height: 20),
+                  buildDamageWidget(
+                    title: "Half Damage\nTo : ",
+                    list: typeDetail.damageRelations.halfDamageTo,
+                  ),
+                  const SizedBox(height: 20),
+                  buildDamageWidget(
+                    title: "No Damage\nFrom : ",
+                    list: typeDetail.damageRelations.noDamageFrom,
+                  ),
+                  const SizedBox(height: 20),
+                  buildDamageWidget(
+                    title: "No Damage\nTo : ",
+                    list: typeDetail.damageRelations.noDamageTo,
+                  ),
+                  const SizedBox(height: 20),
+                  buildAboutInformation("Damage Type",
+                      typeDetail.moveDamageClass.name.capitalizeFirst),
+                  const SizedBox(height: 20),
+                ],
               ),
             )
           : Padding(

@@ -30,7 +30,7 @@ dependencies:
   dio: 3.0.9
   cached_network_image_builder:
   flutter_spinkit: ^4.1.2
-  flutter_svg: ^0.19.0
+  flutter_svg: ^0.19.3
   line_icons: ^0.2.0
   infinite_scroll_pagination: ^2.3.0
   flare_flutter: ^2.0.6
@@ -68,9 +68,9 @@ flutter:
   # list giving the asset and other descriptors for the font. For
   # example:
   fonts:
-    - family: Montserrat-Regular
+    - family: Quicksand-Regular
       fonts:
-        - asset: Assets/fonts/Montserrat-Regular.ttf
+        - asset: Assets/fonts/Quicksand-Regular.ttf
 
   #
   # For details regarding fonts from package dependencies,

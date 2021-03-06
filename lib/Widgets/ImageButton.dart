@@ -26,7 +26,7 @@ class ImageButton extends StatelessWidget {
           children: [
             Text(
               title,
-              style: AppTextStyle.smallBold.copyWith(color: Colors.white),
+              style: AppTextStyle.regularBold.copyWith(color: Colors.white),
             ),
             SizedBox(
               width: 50,
