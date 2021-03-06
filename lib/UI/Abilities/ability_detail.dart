@@ -5,6 +5,7 @@ import 'package:my_pokedex/Helpers/api_helper.dart';
 import 'package:my_pokedex/Helpers/text_styles.dart';
 import 'package:my_pokedex/Helpers/utility_helpers.dart';
 import 'package:my_pokedex/Model/ability_detail.dart';
+import 'package:my_pokedex/utitliy/constants.dart';
 
 class AbilityDetailSheet extends StatefulWidget {
   final String url;
@@ -108,8 +109,8 @@ class _AbilityDetailSheetState extends State<AbilityDetailSheet> {
             )
           : Padding(
               padding: const EdgeInsets.only(top: 18.0, bottom: 18.0),
-              child: Image.asset(
-                'Assets/loading.gif',
+              child: Image(
+                image: AppImages.loadingGif,
                 height: 140,
               ),
             ),

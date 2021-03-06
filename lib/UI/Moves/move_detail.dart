@@ -105,7 +105,10 @@ class _MoveDetailSheetState extends State<MoveDetailSheet> {
                 )
               : Padding(
                   padding: const EdgeInsets.only(top: 18.0, bottom: 18.0),
-                  child: Image.asset('Assets/loading.gif', height: 140),
+                  child: Image(
+                    image: AppImages.loadingGif,
+                    height: 140,
+                  ),
                 );
         });
   }

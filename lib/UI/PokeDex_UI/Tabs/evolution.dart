@@ -5,6 +5,7 @@ import 'package:my_pokedex/Controllers/home_controller.dart';
 import 'package:my_pokedex/Controllers/pokemon_controller.dart';
 import 'package:my_pokedex/Helpers/text_styles.dart';
 import 'package:my_pokedex/Model/pokemon.dart';
+import 'package:my_pokedex/utitliy/constants.dart';
 import 'package:my_pokedex/utitliy/utils.dart';
 
 class EvolutionTab extends StatelessWidget {
@@ -45,7 +46,9 @@ class EvolutionTab extends StatelessWidget {
                                 SizedBox(
                                   width: 70,
                                   height: 70,
-                                  child: Image.asset('Assets/loading.gif'),
+                                  child: Image(
+                                    image: AppImages.loadingGif,
+                                  ),
                                 ),
                                 Text(
                                   "Evolves To",
@@ -97,12 +100,16 @@ class EvolutionTab extends StatelessWidget {
             builder: (image) {
               return Image.file(image);
             },
-            placeHolder: SizedBox(
+            placeHolder: const SizedBox(
               height: 20,
               width: 20,
-              child: Image.asset('Assets/loading.gif'),
+              child: Image(
+                image: AppImages.loadingGif,
+              ),
             ),
-            errorWidget: Image.asset('Assets/poke_ball.png'),
+            errorWidget: const Image(
+              image: AppImages.pokeBall,
+            ),
             imageExtensions: ['jpg', 'png'],
           ),
         ),
@@ -146,12 +153,16 @@ class EvolutionTab extends StatelessWidget {
                           builder: (image) {
                             return Image.file(image);
                           },
-                          placeHolder: SizedBox(
+                          placeHolder: const SizedBox(
                             height: 20,
                             width: 20,
-                            child: Image.asset('Assets/loading.gif'),
+                            child: Image(
+                              image: AppImages.loadingGif,
+                            ),
                           ),
-                          errorWidget: Image.asset('Assets/poke_ball.png'),
+                          errorWidget: const Image(
+                            image: AppImages.pokeBall,
+                          ),
                           imageExtensions: ['jpg', 'png'],
                         ),
                       ),
@@ -167,7 +178,9 @@ class EvolutionTab extends StatelessWidget {
                       SizedBox(
                         width: 70,
                         height: 70,
-                        child: Image.asset('Assets/loading.gif'),
+                        child: const Image(
+                          image: AppImages.loadingGif,
+                        ),
                       ),
                       Text(
                         "Evolves To",
@@ -198,12 +211,16 @@ class EvolutionTab extends StatelessWidget {
                           builder: (image) {
                             return Image.file(image);
                           },
-                          placeHolder: SizedBox(
+                          placeHolder: const SizedBox(
                             height: 20,
                             width: 20,
-                            child: Image.asset('Assets/loading.gif'),
+                            child: Image(
+                              image: AppImages.loadingGif,
+                            ),
                           ),
-                          errorWidget: Image.asset('Assets/poke_ball.png'),
+                          errorWidget: const Image(
+                            image: AppImages.pokeBall,
+                          ),
                           imageExtensions: ['jpg', 'png'],
                         ),
                       ),

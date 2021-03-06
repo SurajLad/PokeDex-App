@@ -81,8 +81,8 @@ class _TypeDetailsSheetState extends State<TypeDetailsSheet> {
             )
           : Padding(
               padding: const EdgeInsets.only(top: 18.0, bottom: 18.0),
-              child: Image.asset(
-                'Assets/loading.gif',
+              child: Image(
+                image: AppImages.loadingGif,
                 height: 140,
               ),
             ),

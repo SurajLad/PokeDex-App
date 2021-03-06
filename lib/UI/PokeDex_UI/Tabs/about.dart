@@ -5,6 +5,7 @@ import 'package:my_pokedex/Controllers/pokemon_controller.dart';
 import 'package:my_pokedex/Helpers/text_styles.dart';
 import 'package:my_pokedex/Helpers/utility_helpers.dart';
 import 'package:my_pokedex/Model/pokemon.dart';
+import 'package:my_pokedex/utitliy/constants.dart';
 
 class AboutTab extends StatelessWidget {
   final Pokemon pokemon;
@@ -80,7 +81,9 @@ class AboutTab extends StatelessWidget {
                         "Height", pokemon.height.toString() + " (m)"),
                   ],
                 )
-              : Image.asset('Assets/loading.gif');
+              : Image(
+                  image: AppImages.loadingGif,
+                );
         },
       ),
     );

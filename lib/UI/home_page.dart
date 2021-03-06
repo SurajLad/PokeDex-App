@@ -5,6 +5,7 @@ import 'package:my_pokedex/Helpers/text_styles.dart';
 import 'package:my_pokedex/UI/PokeDex_UI/pokemon_list.dart';
 import 'package:my_pokedex/UI/list_page.dart';
 import 'package:my_pokedex/Widgets/ImageButton.dart';
+import 'package:my_pokedex/routes/routes.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -78,11 +79,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                       title: "Pokedex",
                       color: const Color(0xFF36996D).withOpacity(0.8),
                       function: () {
-                        Get.to(
-                          PokeDexList(),
-                          curve: Curves.bounceInOut,
-                          duration: Duration(milliseconds: 400),
-                        );
+                        Get.toNamed(Routes.POKEDEX);
                       },
                       imgUrl: "Assets/poke_ball.png",
                     ),

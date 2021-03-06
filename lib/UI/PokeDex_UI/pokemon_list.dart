@@ -4,7 +4,7 @@ import 'package:line_icons/line_icons.dart';
 import 'package:my_pokedex/Controllers/home_controller.dart';
 import 'package:my_pokedex/Helpers/responsive_helper.dart';
 import 'package:my_pokedex/Helpers/text_styles.dart';
-import 'package:my_pokedex/Widgets/PokemonTile.dart';
+import 'package:my_pokedex/Widgets/Grid_pokemonTile.dart';
 
 class PokeDexList extends StatefulWidget {
   @override
@@ -115,15 +115,25 @@ class _PokeDexListState extends State<PokeDexList> {
                       ),
                       GetBuilder<HomeController>(
                         builder: (controller) => Expanded(
-                          child: ListView.builder(
-                            primary: false,
+                          child: GridView.builder(
+                            gridDelegate:
+                                const SliverGridDelegateWithFixedCrossAxisCount(
+                              childAspectRatio: 150 / 150,
+                              crossAxisSpacing: 8,
+                              mainAxisSpacing: 8,
+                              crossAxisCount: 2,
+                            ),
                             itemCount: homeController.searchList.length,
                             itemBuilder: (_, index) {
-                              return PokemonTile(
-                                //    index: index + 1,
-                                index: homeController.searchList[index].dex,
+                              return GridPokemonTile(
+                                index: index + 1,
                                 pokemon: homeController.searchList[index],
                               );
+                              // return PokemonTile(
+                              //   //    index: index + 1,
+                              //   index: homeController.searchList[index].dex,
+                              //   pokemon: homeController.searchList[index],
+                              // );
                             },
                           ),
                         ),

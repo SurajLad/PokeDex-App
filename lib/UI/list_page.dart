@@ -111,9 +111,16 @@ class _ListPageState extends State<ListPage> {
                         ),
                       ),
                       Expanded(
-                          child: PagedListView<String, Results>(
+                          child: PagedGridView<String, Results>(
                         pagingController: _pagingController,
                         physics: BouncingScrollPhysics(),
+                        gridDelegate:
+                            const SliverGridDelegateWithFixedCrossAxisCount(
+                          childAspectRatio: 150 / 150,
+                          crossAxisSpacing: 8,
+                          mainAxisSpacing: 8,
+                          crossAxisCount: 2,
+                        ),
                         builderDelegate: PagedChildBuilderDelegate<Results>(
                           itemBuilder: (context, item, index) => TMTile(
                             moves: item,

@@ -64,40 +64,69 @@ class _TMTileState extends State<TMTile> {
         }
       },
       child: Container(
-          margin: const EdgeInsets.only(bottom: 10.0, left: 6, right: 6),
-          height: 60,
-          alignment: Alignment.center,
-          decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(6),
-              boxShadow: [
-                BoxShadow(
-                  offset: Offset(0.0, .5),
-                  blurRadius: 8.0,
-                  color: Colors.grey[300],
-                )
-              ]),
-          child: ListTile(
-            leading: widget.type != 3
-                ? Image.asset(
-                    widget.imgUrl,
-                    height: 40,
-                  )
-                : SvgPicture.asset(
-                    "Assets/pokemon_type_icons/" +
-                        widget.moves.name.capitalizeFirst +
-                        ".svg",
-                    color: pokemonTypeMap[widget.moves.name.capitalizeFirst],
-                    placeholderBuilder: (context) =>
-                        Image.asset('Assets/poke_ball.png'),
-                    width: 40,
-                  ),
-            title: Text(
-                widget.moves == null
-                    ? "pokemon.name"
-                    : widget.moves.name.capitalizeFirst.replaceAll('-', " "),
-                style: AppTextStyle.regular),
-          )),
+        margin: const EdgeInsets.only(bottom: 10.0, left: 6, right: 6),
+        height: 60,
+        alignment: Alignment.center,
+        decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(6),
+            boxShadow: [
+              BoxShadow(
+                offset: Offset(0.0, .5),
+                blurRadius: 8.0,
+                color: Colors.grey[300],
+              )
+            ]),
+        child: GridTile(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              widget.type != 3
+                  ? Image.asset(
+                      widget.imgUrl,
+                      height: 60,
+                    )
+                  : SvgPicture.asset(
+                      "Assets/pokemon_type_icons/" +
+                          widget.moves.name.capitalizeFirst +
+                          ".svg",
+                      color: pokemonTypeMap[widget.moves.name.capitalizeFirst],
+                      placeholderBuilder: (context) =>
+                          Image.asset('Assets/poke_ball.png'),
+                      width: 40,
+                    ),
+              const SizedBox(height: 10),
+              Text(
+                  widget.moves == null
+                      ? "pokemon.name"
+                      : widget.moves.name.capitalizeFirst.replaceAll('-', " "),
+                  textAlign: TextAlign.center,
+                  style: AppTextStyle.smallBold),
+            ],
+          ),
+        ),
+        // child: ListTile(
+        //   leading: widget.type != 3
+        //       ? Image.asset(
+        //           widget.imgUrl,
+        //           height: 40,
+        //         )
+        //       : SvgPicture.asset(
+        //           "Assets/pokemon_type_icons/" +
+        //               widget.moves.name.capitalizeFirst +
+        //               ".svg",
+        //           color: pokemonTypeMap[widget.moves.name.capitalizeFirst],
+        //           placeholderBuilder: (context) =>
+        //               Image.asset('Assets/poke_ball.png'),
+        //           width: 40,
+        //         ),
+        //   title: Text(
+        //       widget.moves == null
+        //           ? "pokemon.name"
+        //           : widget.moves.name.capitalizeFirst.replaceAll('-', " "),
+        //       style: AppTextStyle.regular),
+        // ),
+      ),
     );
   }
 }

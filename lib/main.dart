@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'package:my_pokedex/UI/splash_page.dart';
+import 'package:my_pokedex/routes/app_pages.dart';
+import 'package:my_pokedex/routes/routes.dart';
+import 'package:my_pokedex/utitliy/constants.dart';
 
 void main() {
   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.light);
@@ -14,11 +16,13 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'PokeDex',
+      initialRoute: Routes.SPLASH,
+      getPages: AppPages.appPages,
+      defaultTransition: Transition.fade,
       theme: ThemeData(
-        fontFamily: 'Quicksand-Regular',
-        primarySwatch: Colors.blue,
+        fontFamily: FONT,
       ),
-      home: SplashPage(),
+      transitionDuration: Duration(milliseconds: 300),
     );
   }
 }

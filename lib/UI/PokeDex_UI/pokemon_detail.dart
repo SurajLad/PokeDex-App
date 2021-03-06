@@ -210,9 +210,13 @@ class _PokemonDetailState extends State<PokemonDetail>
                       placeHolder: SizedBox(
                         height: 20,
                         width: 20,
-                        child: Image.asset('Assets/loading.gif'),
+                        child: const Image(
+                          image: AppImages.loadingGif,
+                        ),
                       ),
-                      errorWidget: Image.asset('Assets/poke_ball.png'),
+                      errorWidget: const Image(
+                        image: AppImages.pokeBall,
+                      ),
                       imageExtensions: ['jpg', 'png'],
                     ),
                   ),
