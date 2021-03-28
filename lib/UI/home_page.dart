@@ -77,7 +77,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                     const SizedBox(height: 30),
                     ImageButton(
                       title: "Pokedex",
-                      color: const Color(0xFF36996D).withOpacity(0.8),
+                      color: const Color(0xFF36996D).withOpacity(0.9),
                       function: () {
                         Get.toNamed(Routes.POKEDEX);
                       },
@@ -86,7 +86,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                     const SizedBox(height: 10),
                     ImageButton(
                       title: "Moves",
-                      color: const Color(0xFFC73B37).withOpacity(0.8),
+                      color: const Color(0xFFC73B37).withOpacity(0.9),
                       function: () {
                         Get.to(
                           ListPage(
@@ -106,7 +106,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                     const SizedBox(height: 10),
                     ImageButton(
                       title: "Abilities",
-                      color: const Color(0xFFEDA926).withOpacity(0.8),
+                      color: const Color(0xFFEDA926).withOpacity(0.9),
                       function: () {
                         Get.to(
                           ListPage(
@@ -126,7 +126,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                     const SizedBox(height: 10),
                     ImageButton(
                       title: "Items",
-                      color: const Color(0xFF2E6DD5).withOpacity(0.8),
+                      color: const Color(0xFF2E6DD5).withOpacity(0.9),
                       function: () {
                         Get.to(
                           ListPage(
@@ -146,7 +146,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                     const SizedBox(height: 10),
                     ImageButton(
                       title: "Region",
-                      color: const Color(0xFF4F1091),
+                      color: const Color(0xFF4F1091).withOpacity(0.9),
                       function: () {
                         Get.to(
                           ListPage(
@@ -166,7 +166,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                     const SizedBox(height: 10),
                     ImageButton(
                       title: "Type",
-                      color: const Color(0xFF4C2E3C),
+                      color: const Color(0xFF4C2E3C).withOpacity(0.9),
                       function: () {
                         Get.to(
                           ListPage(

@@ -74,6 +74,7 @@ class _PokeDexListState extends State<PokeDexList> {
                           "PokeDex",
                           style: AppTextStyle.extraLargeBold.copyWith(
                             color: Color(0xFFe94a41),
+                            fontWeight: FontWeight.bold,
                           ),
                         ),
                       ),
@@ -124,6 +125,7 @@ class _PokeDexListState extends State<PokeDexList> {
                               crossAxisCount: 2,
                             ),
                             itemCount: homeController.searchList.length,
+                            physics: BouncingScrollPhysics(),
                             itemBuilder: (_, index) {
                               return GridPokemonTile(
                                 index: index + 1,
