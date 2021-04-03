@@ -24,7 +24,7 @@ class _MoveDetailSheetState extends State<MoveDetailSheet> {
   @override
   Widget build(BuildContext context) {
     return DraggableScrollableSheet(
-        initialChildSize: 0.6,
+        initialChildSize: .7,
         maxChildSize: 1,
         expand: false,
         builder: (context, scrollController) {
