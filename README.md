@@ -6,7 +6,7 @@ Pokemon Fan App Made in Flutter.
 - Types
 - PokeItems
 - PokeMoves
-- PokeAbilities3
+- Poke Abilities
 - PokeRegions
 
 Test App by Downloading Apk From Screenshot/app.apk
