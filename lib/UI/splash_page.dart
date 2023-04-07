@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'package:flare_flutter/flare_actor.dart';
 import 'package:flare_splash_screen/flare_splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -36,7 +35,7 @@ class _SplashPageState extends State<SplashPage> {
     ResponsiveHelper.instance.titleFontSize = Get.width > 300 ? 22 : 20;
     return SplashScreen.navigate(
       backgroundColor: Colors.white,
-      name: 'Assets/poke_splash.flr',
+      name: 'assets/poke_splash.flr',
       height: Get.height,
       next: (_) => HomePage(),
       until: () => Future.delayed(Duration(seconds: 2)),

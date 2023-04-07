@@ -22,7 +22,7 @@ class ItemDetail {
 
   ItemDetail.fromJson(Map<String, dynamic> json) {
     if (json['attributes'] != null) {
-      attributes = new List<Attributes>();
+      attributes = <Attributes>[];
       json['attributes'].forEach((v) {
         attributes.add(new Attributes.fromJson(v));
       });
@@ -32,7 +32,7 @@ class ItemDetail {
         : null;
     cost = json['cost'];
     if (json['effect_entries'] != null) {
-      effectEntries = new List<EffectEntries>();
+      effectEntries = <EffectEntries>[];
       json['effect_entries'].forEach((v) {
         effectEntries.add(new EffectEntries.fromJson(v));
       });
@@ -154,7 +154,7 @@ class Item {
 
   Item.fromJson(Map<String, dynamic> json) {
     if (json['attributes'] != null) {
-      attributes = new List<Attributes>();
+      attributes = <Attributes>[];
       json['attributes'].forEach((v) {
         attributes.add(new Attributes.fromJson(v));
       });
@@ -164,7 +164,7 @@ class Item {
         : null;
     cost = json['cost'];
     if (json['effect_entries'] != null) {
-      effectEntries = new List<EffectEntries>();
+      effectEntries = <EffectEntries>[];
       json['effect_entries'].forEach((v) {
         effectEntries.add(new EffectEntries.fromJson(v));
       });

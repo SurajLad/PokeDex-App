@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:line_icons/line_icons.dart';
-import 'package:my_pokedex/Controllers/pokemon_controller.dart';
+import 'package:my_pokedex/controllers/pokemon_controller.dart';
 import 'package:my_pokedex/Helpers/text_styles.dart';
 import 'package:my_pokedex/Helpers/utility_helpers.dart';
 import 'package:my_pokedex/Model/pokemon.dart';

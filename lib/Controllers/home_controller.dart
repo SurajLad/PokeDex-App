@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
-import 'package:my_pokedex/Helpers/api_helper.dart';
 import 'package:my_pokedex/Model/news.dart';
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:my_pokedex/Model/pokemon.dart';
@@ -36,7 +35,7 @@ class HomeController extends GetxController {
   }
 
   void getData() async {
-    parseJsonFromAssets("Assets/data.json").then((dmap) {
+    parseJsonFromAssets("assets/data.json").then((dmap) {
       pokemonList = pokemonFromJson(dmap);
       searchList = pokemonList;
     });

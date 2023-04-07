@@ -39,7 +39,8 @@ class GridPokemonTile extends StatelessWidget {
       child: Hero(
         tag: pokemon.id,
         child: CachedNetworkImageBuilder(
-          url: "https://pokeres.bastionbot.org/images/pokemon/$index.png",
+          url:
+              "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/$index.png",
           builder: (image) {
             return Image.file(
               image,

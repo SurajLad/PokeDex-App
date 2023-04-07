@@ -4,7 +4,7 @@ const Color appThemeColor = Color(0xFFEAEBF5);
 const String FONT = "Quicksand-Regular";
 
 class _Image extends AssetImage {
-  const _Image(String fileName) : super('Assets/$fileName');
+  const _Image(String fileName) : super('assets/$fileName');
 }
 
 class AppImages {

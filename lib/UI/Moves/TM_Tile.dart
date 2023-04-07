@@ -87,12 +87,12 @@ class _TMTileState extends State<TMTile> {
                       height: 60,
                     )
                   : SvgPicture.asset(
-                      "Assets/pokemon_type_icons/" +
+                      "assets/pokemon_type_icons/" +
                           widget.moves.name.capitalizeFirst +
                           ".svg",
                       color: pokemonTypeMap[widget.moves.name.capitalizeFirst],
                       placeholderBuilder: (context) =>
-                          Image.asset('Assets/poke_ball.png'),
+                          Image.asset('assets/poke_ball.png'),
                       width: 40,
                     ),
               const SizedBox(height: 10),
@@ -112,12 +112,12 @@ class _TMTileState extends State<TMTile> {
         //           height: 40,
         //         )
         //       : SvgPicture.asset(
-        //           "Assets/pokemon_type_icons/" +
+        //           "assets/pokemon_type_icons/" +
         //               widget.moves.name.capitalizeFirst +
         //               ".svg",
         //           color: pokemonTypeMap[widget.moves.name.capitalizeFirst],
         //           placeholderBuilder: (context) =>
-        //               Image.asset('Assets/poke_ball.png'),
+        //               Image.asset('assets/poke_ball.png'),
         //           width: 40,
         //         ),
         //   title: Text(

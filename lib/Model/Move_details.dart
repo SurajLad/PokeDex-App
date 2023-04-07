@@ -34,7 +34,7 @@ class MoveDetail {
         : null;
     id = json['id'];
     if (json['learned_by_pokemon'] != null) {
-      learnedByPokemon = new List<LearnedByPokemon>();
+      learnedByPokemon = <LearnedByPokemon>[];
       json['learned_by_pokemon'].forEach((v) {
         learnedByPokemon.add(new LearnedByPokemon.fromJson(v));
       });

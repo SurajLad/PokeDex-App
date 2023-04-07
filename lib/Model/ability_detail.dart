@@ -1,33 +1,40 @@
 class AbilityDetail {
-  List<EffectEntries> effectEntries;
-  int id;
-  bool isMainSeries;
-  String name;
-  List<Pokemon> pokemon;
+  final List<EffectEntries> effectEntries;
+  final int id;
+  final bool isMainSeries;
+  final String name;
+  final List<Pokemon> pokemon;
 
-  AbilityDetail(
-      {this.effectEntries,
-      this.id,
-      this.isMainSeries,
-      this.name,
-      this.pokemon});
+  AbilityDetail({
+    this.effectEntries = const [],
+    this.id = 0,
+    this.isMainSeries = false,
+    this.name = "",
+    this.pokemon = const [],
+  });
 
-  AbilityDetail.fromJson(Map<String, dynamic> json) {
+  factory AbilityDetail.fromJson(Map<String, dynamic> json) {
+    final effectEntries = <EffectEntries>[];
+    final pokemon = <Pokemon>[];
+
     if (json['effect_entries'] != null) {
-      effectEntries = new List<EffectEntries>();
       json['effect_entries'].forEach((v) {
         effectEntries.add(new EffectEntries.fromJson(v));
       });
     }
-    id = json['id'];
-    isMainSeries = json['is_main_series'];
-    name = json['name'];
+
     if (json['pokemon'] != null) {
-      pokemon = new List<Pokemon>();
       json['pokemon'].forEach((v) {
         pokemon.add(new Pokemon.fromJson(v));
       });
     }
+    return AbilityDetail(
+      id: json['id'],
+      name: json['name'],
+      isMainSeries: json['is_main_series'],
+      effectEntries: effectEntries,
+      pokemon: pokemon,
+    );
   }
 
   Map<String, dynamic> toJson() {

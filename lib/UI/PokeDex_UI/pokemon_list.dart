@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:line_icons/line_icons.dart';
-import 'package:my_pokedex/Controllers/home_controller.dart';
+import 'package:my_pokedex/controllers/home_controller.dart';
 import 'package:my_pokedex/Helpers/responsive_helper.dart';
 import 'package:my_pokedex/Helpers/text_styles.dart';
-import 'package:my_pokedex/Widgets/Grid_pokemonTile.dart';
+import 'package:my_pokedex/widgets/Grid_pokemonTile.dart';
 
 class PokeDexList extends StatefulWidget {
   @override
@@ -38,7 +38,7 @@ class _PokeDexListState extends State<PokeDexList> {
                 left: Get.width - 150,
                 bottom: (Get.height / 1.35),
                 child: Image.asset(
-                  'Assets/poke_ball.png',
+                  'assets/poke_ball.png',
                   width: 230,
                   height: 230,
                 ),

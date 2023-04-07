@@ -1,5 +1,4 @@
 import 'package:cached_network_image_builder/cached_network_image_builder.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:my_pokedex/Helpers/api_helper.dart';
 import 'package:my_pokedex/Helpers/text_styles.dart';
@@ -76,7 +75,7 @@ class _AbilityDetailSheetState extends State<AbilityDetailSheet> {
                                 margin: const EdgeInsets.only(
                                     right: 12.0, bottom: 10.0),
                                 child: CachedNetworkImageBuilder(
-                                  url: "https://pokeres.bastionbot.org/images/pokemon/" +
+                                  url: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/" +
                                       abilityDetail.pokemon[index].pokemon.url
                                           .replaceAll(
                                               "https://pokeapi.co/api/v2/pokemon/",
@@ -89,10 +88,10 @@ class _AbilityDetailSheetState extends State<AbilityDetailSheet> {
                                   placeHolder: SizedBox(
                                     width: 90,
                                     height: 90,
-                                    child: Image.asset('Assets/loading.gif'),
+                                    child: Image.asset('assets/loading.gif'),
                                   ),
                                   errorWidget:
-                                      Image.asset('Assets/poke_ball.png'),
+                                      Image.asset('assets/poke_ball.png'),
                                   imageExtensions: ['jpg', 'png'],
                                 ),
                               ),

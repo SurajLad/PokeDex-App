@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:my_pokedex/Controllers/home_controller.dart';
+import 'package:my_pokedex/controllers/home_controller.dart';
 import 'package:my_pokedex/Helpers/text_styles.dart';
-import 'package:my_pokedex/UI/PokeDex_UI/pokemon_list.dart';
 import 'package:my_pokedex/UI/list_page.dart';
-import 'package:my_pokedex/Widgets/ImageButton.dart';
+import 'package:my_pokedex/widgets/ImageButton.dart';
 import 'package:my_pokedex/routes/routes.dart';
 
 class HomePage extends StatefulWidget {
@@ -50,7 +49,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                   turns:
                       Tween(begin: 0.0, end: 1.0).animate(animationController),
                   child: Image.asset(
-                    'Assets/pokemon_ball.png',
+                    'assets/pokemon_ball.png',
                     width: 230,
                     height: 230,
                     color: Colors.black12,
@@ -81,7 +80,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                       function: () {
                         Get.toNamed(Routes.POKEDEX);
                       },
-                      imgUrl: "Assets/poke_ball.png",
+                      imgUrl: "assets/poke_ball.png",
                     ),
                     const SizedBox(height: 10),
                     ImageButton(
@@ -95,13 +94,13 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                             description:
                                 "Moves are the skills of Pokémon in battle. In battle, a Pokémon uses one move each turn. Some moves (including those learned by Hidden Machine) can be used outside of battle as well, usually for the purpose of removing obstacles or exploring new areas.",
                             type: 0,
-                            imgUrl: "Assets/poke_move.png",
+                            imgUrl: "assets/poke_move.png",
                           ),
                           curve: Curves.bounceInOut,
                           duration: Duration(milliseconds: 400),
                         );
                       },
-                      imgUrl: "Assets/poke_move.png",
+                      imgUrl: "assets/poke_move.png",
                     ),
                     const SizedBox(height: 10),
                     ImageButton(
@@ -115,13 +114,13 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                             description:
                                 "Abilities provide passive effects for Pokémon in battle or in the overworld. Pokémon have multiple possible abilities but can have only one ability at a time.",
                             type: 1,
-                            imgUrl: "Assets/poke_abilities.png",
+                            imgUrl: "assets/poke_abilities.png",
                           ),
                           curve: Curves.bounceInOut,
                           duration: Duration(milliseconds: 400),
                         );
                       },
-                      imgUrl: "Assets/poke_abilities.png",
+                      imgUrl: "assets/poke_abilities.png",
                     ),
                     const SizedBox(height: 10),
                     ImageButton(
@@ -135,13 +134,13 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                             description:
                                 "An item is an object in the games which the player can pick up, keep in their bag, and use in some manner. They have various uses, including healing, powering up, helping catch Pokémon, or to access a new area.",
                             type: 2,
-                            imgUrl: "Assets/poke_items.png",
+                            imgUrl: "assets/poke_items.png",
                           ),
                           curve: Curves.bounceInOut,
                           duration: Duration(milliseconds: 400),
                         );
                       },
-                      imgUrl: "Assets/poke_items.png",
+                      imgUrl: "assets/poke_items.png",
                     ),
                     const SizedBox(height: 10),
                     ImageButton(
@@ -155,13 +154,13 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                             description:
                                 "A region is an organized area of the Pokémon world. Most often, the main difference between regions is the species of Pokémon that can be encountered within them.",
                             type: 4,
-                            imgUrl: "Assets/poke_region.png",
+                            imgUrl: "assets/poke_region.png",
                           ),
                           curve: Curves.bounceInOut,
                           duration: Duration(milliseconds: 400),
                         );
                       },
-                      imgUrl: "Assets/poke_region.png",
+                      imgUrl: "assets/poke_region.png",
                     ),
                     const SizedBox(height: 10),
                     ImageButton(
@@ -175,13 +174,13 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                             description:
                                 "Types are properties for Pokémon and their moves. Each type has three properties: which types of Pokémon it is super effective against, which types of Pokémon it is not very effective against, and which types of Pokémon it is completely ineffective against.",
                             type: 3,
-                            imgUrl: "Assets/poke_region.png",
+                            imgUrl: "assets/poke_region.png",
                           ),
                           curve: Curves.bounceInOut,
                           duration: Duration(milliseconds: 400),
                         );
                       },
-                      imgUrl: "Assets/pokemon_ball.png",
+                      imgUrl: "assets/pokemon_ball.png",
                     ),
                   ],
                 ),

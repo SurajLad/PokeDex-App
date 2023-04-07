@@ -2,7 +2,7 @@ import 'package:cached_network_image_builder/cached_network_image_builder.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:line_icons/line_icons.dart';
-import 'package:my_pokedex/Controllers/pokemon_controller.dart';
+import 'package:my_pokedex/controllers/pokemon_controller.dart';
 import 'package:my_pokedex/Helpers/responsive_helper.dart';
 import 'package:my_pokedex/Helpers/text_styles.dart';
 import 'package:my_pokedex/Model/pokemon.dart';
@@ -63,7 +63,7 @@ class _PokemonDetailState extends State<PokemonDetail>
                   turns:
                       Tween(begin: 0.0, end: 1.0).animate(animationController),
                   child: Image.asset(
-                    'Assets/pokemon_ball.png',
+                    'assets/pokemon_ball.png',
                     width: 230,
                     height: 230,
                     color: Colors.white24,
@@ -201,9 +201,10 @@ class _PokemonDetailState extends State<PokemonDetail>
                     width: ResponsiveHelper.instance.width / 1.85,
                     height: ResponsiveHelper.instance.width / 1.85,
                     child: CachedNetworkImageBuilder(
-                      url: "https://pokeres.bastionbot.org/images/pokemon/" +
-                          widget.pokemon.dex.toString() +
-                          ".png",
+                      url:
+                          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/" +
+                              widget.pokemon.dex.toString() +
+                              ".png",
                       builder: (image) {
                         return Image.file(image);
                       },

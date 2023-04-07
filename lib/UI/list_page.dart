@@ -63,7 +63,7 @@ class _ListPageState extends State<ListPage> {
                 left: ResponsiveHelper.instance.width - 160,
                 bottom: (ResponsiveHelper.instance.height / 1.45),
                 child: Image.asset(
-                  'Assets/poke_ball.png',
+                  'assets/poke_ball.png',
                   width: 230,
                   height: 230,
                 ),

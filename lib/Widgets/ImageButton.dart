@@ -8,17 +8,24 @@ class ImageButton extends StatelessWidget {
   final Function function;
   final String imgUrl;
 
-  ImageButton({this.title, this.color, this.function, this.imgUrl});
+  ImageButton({
+    this.title,
+    this.color,
+    this.function,
+    this.imgUrl,
+  });
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       width: Get.width,
       height: 60,
-      child: FlatButton(
-        color: color,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(10),
+      child: ElevatedButton(
+        style: ElevatedButton.styleFrom(
+          backgroundColor: color,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10),
+          ),
         ),
         onPressed: function,
         child: Row(

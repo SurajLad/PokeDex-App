@@ -9,7 +9,7 @@ class News {
     status = json['status'];
     totalResults = json['totalResults'];
     if (json['articles'] != null) {
-      articles = new List<Articles>();
+      articles = <Articles>[];
       json['articles'].forEach((v) {
         articles.add(new Articles.fromJson(v));
       });

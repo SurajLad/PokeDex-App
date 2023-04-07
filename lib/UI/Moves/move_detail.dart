@@ -36,13 +36,13 @@ class _MoveDetailSheetState extends State<MoveDetailSheet> {
                       child: Padding(
                         padding: const EdgeInsets.fromLTRB(8.0, 8, 18, 8),
                         child: SvgPicture.asset(
-                          "Assets/pokemon_type_icons/" +
+                          "assets/pokemon_type_icons/" +
                               moveDetails.type.name.capitalizeFirst +
                               ".svg",
                           color: pokemonTypeMap[
                               moveDetails.type.name.capitalizeFirst],
                           placeholderBuilder: (context) =>
-                              Image.asset('Assets/poke_ball.png'),
+                              Image.asset('assets/poke_ball.png'),
                           width: 90,
                         ),
                       ),

@@ -25,9 +25,8 @@ String getStatString(String stat) {
 
     case "speed":
       return "Speed";
-
-      return "";
   }
+  return "";
 }
 
 getStatsColor(int stat) {

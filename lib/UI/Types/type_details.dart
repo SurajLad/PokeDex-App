@@ -122,13 +122,13 @@ class _TypeDetailsSheetState extends State<TypeDetailsSheet> {
                         child: Container(
                           padding: const EdgeInsets.all(4.0),
                           child: SvgPicture.asset(
-                            "Assets/pokemon_type_icons/" +
+                            "assets/pokemon_type_icons/" +
                                 list[index].name.toString().capitalizeFirst +
                                 ".svg",
                             color: pokemonTypeMap[
                                 list[index].name.toString().capitalizeFirst],
                             placeholderBuilder: (context) =>
-                                Image.asset('Assets/poke_ball.png'),
+                                Image.asset('assets/poke_ball.png'),
                             width: 30,
                           ),
                         ),

@@ -1,8 +1,8 @@
 import 'package:cached_network_image_builder/cached_network_image_builder.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:my_pokedex/Controllers/home_controller.dart';
-import 'package:my_pokedex/Controllers/pokemon_controller.dart';
+import 'package:my_pokedex/controllers/home_controller.dart';
+import 'package:my_pokedex/controllers/pokemon_controller.dart';
 import 'package:my_pokedex/Helpers/text_styles.dart';
 import 'package:my_pokedex/Model/pokemon.dart';
 import 'package:my_pokedex/utitliy/constants.dart';
@@ -94,9 +94,10 @@ class EvolutionTab extends StatelessWidget {
           width: 70,
           height: 70,
           child: CachedNetworkImageBuilder(
-            url: "https://pokeres.bastionbot.org/images/pokemon/" +
-                urlIndex +
-                ".png",
+            url:
+                "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/" +
+                    urlIndex +
+                    ".png",
             builder: (image) {
               return Image.file(image);
             },
@@ -143,7 +144,7 @@ class EvolutionTab extends StatelessWidget {
                         height: 70,
                         child: CachedNetworkImageBuilder(
                           url:
-                              "https://pokeres.bastionbot.org/images/pokemon/" +
+                              "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/" +
                                   getDexFromName(
                                           pokemon.evolution
                                               .futureBranches[index].name,
@@ -198,7 +199,7 @@ class EvolutionTab extends StatelessWidget {
                         height: 70,
                         child: CachedNetworkImageBuilder(
                           url:
-                              "https://pokeres.bastionbot.org/images/pokemon/" +
+                              "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/" +
                                   getDexFromName(
                                           pokemon
                                               .evolution
